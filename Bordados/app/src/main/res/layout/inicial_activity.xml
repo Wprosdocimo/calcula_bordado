@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/bastidor_label"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Bastidor:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/bastidor_spinner"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bastidor_spinner"
+        app:layout_constraintBottom_toBottomOf="@id/bastidor_spinner"/>
+
+    <Spinner
+        android:id="@+id/bastidor_spinner"
+        android:layout_width="204dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bastidor_label"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="275dp" />
+
+    <TextView
+        android:id="@+id/pontos_label"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Pontos:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/pontos_editText"
+        app:layout_constraintEnd_toStartOf="@+id/pontos_editText"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pontos_editText" />
+
+    <EditText
+        android:id="@+id/pontos_editText"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="1234"
+        android:inputType="number"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pontos_label"
+        app:layout_constraintTop_toBottomOf="@id/bastidor_spinner" />
+
+    <TextView
+        android:id="@+id/cores_label"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Cores / Paradas:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/cores_editText"
+        app:layout_constraintEnd_toStartOf="@+id/cores_editText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cores_editText" />
+
+    <EditText
+        android:id="@+id/cores_editText"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="5"
+        android:inputType="number"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cores_label"
+        app:layout_constraintTop_toBottomOf="@id/pontos_editText" />
+
+    <TextView
+        android:id="@+id/qtde_label"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Quantidade de bordados:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/qtde_editText"
+        app:layout_constraintEnd_toStartOf="@+id/qtde_editText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/qtde_editText" />
+
+    <EditText
+        android:id="@+id/qtde_editText"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="2"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/qtde_label"
+        app:layout_constraintTop_toBottomOf="@id/cores_editText" />
+
+    <Button
+        android:id="@+id/calcula_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="Calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtde_editText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

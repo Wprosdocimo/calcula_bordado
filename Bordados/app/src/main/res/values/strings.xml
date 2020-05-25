@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bordados</string>
+    <string-array
+        name="bastidores">
+        <item>A (100 x 100)</item>
+        <item>B (200 x 200)</item>
+        <item>C (300 x 300)</item>
+    </string-array>
+</resources>
