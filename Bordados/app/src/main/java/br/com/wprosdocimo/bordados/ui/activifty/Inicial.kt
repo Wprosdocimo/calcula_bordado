@@ -11,7 +11,6 @@ import br.com.wprosdocimo.bordados.model.Bastidor
 import br.com.wprosdocimo.bordados.model.Bordado
 import kotlinx.android.synthetic.main.inicial_activity.*
 
-
 class Inicial : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var bastidor: Bastidor = Bastidor()
     // bastidores originais JANOME
@@ -21,12 +20,6 @@ class Inicial : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         Bastidor("B", 140, 200),
         Bastidor("C", 50, 50)
     )
-    val consumo_linha_bordado_por_1000_pontos = 6.5
-    val consumo_linha_bobina_por_1000_pontos = 2.5
-    val custo_cone_linha_bordado = 10.0
-    val custo_cone_linha_bobina = 30.0
-    val quantidade_linha_bordado_por_cone = 4000
-    val quantidade_linha_bobina_por_cone = 15000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,19 +33,17 @@ class Inicial : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             val pontos = pontos_editText.text.toString()
             val cores = cores_editText.text.toString()
             val quantidade = qtde_editText.text.toString()
+
             val bordado = Bordado(
                 pontos = pontos.toInt(),
                 cores = cores.toInt(),
                 bastidor = bastidor
             )
 
-            val custo_metro_linha_bordado = custo_cone_linha_bordado / quantidade_linha_bordado_por_cone
-            val consumo_do_bordado = ( bordado.pontos / 1000 ) * consumo_linha_bordado_por_1000_pontos
-            val custo_metro_linha_bobina = custo_cone_linha_bobina / quantidade_linha_bobina_por_cone
-            val consumo_do_bobina = ( bordado.pontos / 1000 ) * consumo_linha_bobina_por_1000_pontos
-            val custo_linha_bobina = custo_metro_linha_bobina * consumo_do_bobina
-            val custo_linha_bordado = custo_metro_linha_bordado * consumo_do_bordado
-            val custo = ( custo_linha_bordado + custo_linha_bobina ) * quantidade.toInt()
+            val custo = calcula_custo_total(
+                bordado,
+                quantidade
+            )
 
             Toast.makeText(
                 this,
@@ -60,11 +51,61 @@ class Inicial : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         " Cores: ${bordado.cores}," +
                         " Qtde: $quantidade," +
                         " Bastidor (bordado): ${bordado.bastidor}" +
-                        "Custo Calculado: $custo",
+                        " Custo Calculado: $custo",
                 Toast.LENGTH_LONG
             )
                 .show()
         }
+    }
+
+    private fun calcula_custo_total(
+        bordado: Bordado,
+        quantidade: String
+    ): Double {
+        val custo_linha_bordado = calcula_custo_linha_bordado(bordado)
+        val custo_linha_bobina = calcula_custo_linha_bobina(bordado)
+        val custo_entretela = calcula_custo_entretela(bordado)
+        val custo = (
+                custo_linha_bordado + custo_linha_bobina + custo_entretela
+                ) * quantidade.toInt()
+        return custo
+    }
+
+    private fun calcula_custo_entretela(bordado: Bordado): Double {
+        val custo_metro = 12.0
+        val largura = 900 // milimetros
+        val comprimento = 1000 // milimetros
+
+        val area_entretela = (comprimento * largura) / 2
+        val area_bastidor = (bordado.bastidor.largura * bordado.bastidor.altura) / 2
+
+        val quantidade_de_bastidores_por_area_de_entretela = area_entretela / area_bastidor
+
+        val custo_entretela = custo_metro / quantidade_de_bastidores_por_area_de_entretela
+
+        return custo_entretela
+    }
+
+    private fun calcula_custo_linha_bobina(bordado: Bordado): Double {
+        val custo_cone_linha = 30.0
+        val quantidade_linha_por_cone = 15000
+        val consumo_linha_por_1000_pontos = 2.5
+
+        val custo_metro_linha = custo_cone_linha / quantidade_linha_por_cone
+        val consumo_do_bordado = (bordado.pontos / 1000) * consumo_linha_por_1000_pontos
+        val custo_linha_bobina = custo_metro_linha * consumo_do_bordado
+        return custo_linha_bobina
+    }
+
+    private fun calcula_custo_linha_bordado(bordado: Bordado): Double {
+        val custo_cone_linha: Double = 10.0
+        val quantidade_linha_por_cone: Int = 4000
+        val consumo_linha_por_1000_pontos: Double = 6.5
+
+        val custo_metro_linha = custo_cone_linha / quantidade_linha_por_cone
+        val consumo_do_bordado = (bordado.pontos / 1000) * consumo_linha_por_1000_pontos
+        val custo_linha_bordado = custo_metro_linha * consumo_do_bordado
+        return custo_linha_bordado
     }
 
     private fun configuraSpinner() {
