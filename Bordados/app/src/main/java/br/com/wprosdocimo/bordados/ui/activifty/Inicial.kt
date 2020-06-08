@@ -28,7 +28,6 @@ class Inicial : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         configuraSpinner()
         configuraBotaoCalcular()
     }
@@ -45,25 +44,37 @@ class Inicial : AppCompatActivity() {
                 cores = cores.toInt(),
                 bastidor = bastidorSelecionado
             )
-
-            val custo = calcula_custo_total(this,
+            val tempo_bordado = calcula_tempo_bordado(bordado)
+            val custo = calcula_custo_total(
                 bordado,
                 quantidade
             )
+            val valor = calcula_valor_final(custo)
 
-            val custoFormatado = custo.formataParaBrasileiro()
-
-//            Toast.makeText(
-//                this,
-//                "Pontos: ${bordado.pontos}," +
-//                        " Cores: ${bordado.cores}," +
-//                        " Qtde: $quantidade," +
-//                        " Bastidor (bordado): ${bordado.bastidor}" +
-//                        " Custo Calculado: $custoFormatado",
-//                Toast.LENGTH_LONG
-//            )
-//                .show()
+            Toast.makeText(
+                this,
+                "Pontos: ${bordado.pontos}," +
+                        " Cores: ${bordado.cores}," +
+                        " Qtde: $quantidade," +
+                        " Bastidor (bordado): ${bordado.bastidor}" +
+                        " Tempo de bordado: $tempo_bordado min." +
+                        " Custo Calculado: ${custo.formataParaBrasileiro()}" +
+                        " Valor: ${valor.formataParaBrasileiro()}",
+                Toast.LENGTH_LONG
+            ).show()
         }
+    }
+
+    private fun calcula_valor_final(custo: BigDecimal): BigDecimal {
+        // Adiciona margem de lucro
+        val lucro_desejado = 10 // 10%
+        // Calculo de percentual básico
+        // custo * (lucro_desejado + 100%)
+        // Markup 10% do valor final
+        // custo / (100% - lucro_desejado)
+        val percentual = (100.0 - lucro_desejado) / 100
+        val valor = custo / percentual.toBigDecimal()
+        return valor
     }
 
     private fun calcula_custos_tempo_bordado(tempo_bordado: Double): BigDecimal {
@@ -71,28 +82,45 @@ class Inicial : AppCompatActivity() {
         val dias_trabalho_mes = 20 // dias
         val horas_trabalho_mes = dias_trabalho_mes * horas_trabalho_dia
 
-        val salario_base = 1045.0 // Reais
-        val valor_hora_pessoa = salario_base / horas_trabalho_mes
-        val custo_mao_obra = (valor_hora_pessoa / 60) * tempo_bordado
+        val custo_mao_obra = calcula_mao_de_obra(horas_trabalho_mes, tempo_bordado)
+        val custos_fixos_por_bordado =
+            calcula_custos_fixos(horas_trabalho_mes, tempo_bordado)
 
-        val manutencao_anual = 300.0 // Reais
-        val luz = 40.0 // Reais
-        val agua = 0.0 // Reais
-        val aluguel = 0.0 // Reais
-        val telefone_internet = 50.0 // Reais
+        return custo_mao_obra + custos_fixos_por_bordado
+    }
+
+    private fun calcula_custos_fixos(
+        horas_trabalho_mes: Double,
+        tempo_bordado: Double
+    ): BigDecimal {
+        val manutencao_anual = BigDecimal("300.0000") // Reais
+        val luz = BigDecimal("40.0000") // Reais
+        val agua = BigDecimal.ZERO // Reais
+        val aluguel = BigDecimal.ZERO // Reais
+        val telefone_internet = BigDecimal("50.0000") // Reais
         // X = 25 + 40 + 50 = 115
-        val custos_fixos_mensais = (manutencao_anual / 12) + luz +
+        val custos_fixos_mensais = (manutencao_anual / BigDecimal("12.0000")) + luz +
                 agua + aluguel + telefone_internet
 
         // X = ((115/80)/60) * (20 + 3 + 2) = ((1,4375)/60) * 25 = 0.024 * 25 = 0,60
         val custos_fixos_por_bordado =
-            ((custos_fixos_mensais / horas_trabalho_mes) / 60) * tempo_bordado
+            ((custos_fixos_mensais / horas_trabalho_mes.toBigDecimal()) / BigDecimal("60.0000")) * tempo_bordado.toBigDecimal()
+        return custos_fixos_por_bordado
+    }
 
-        return BigDecimal(custo_mao_obra + custos_fixos_por_bordado)
+    private fun calcula_mao_de_obra(
+        horas_trabalho_mes: Double,
+        tempo_bordado: Double
+    ): BigDecimal {
+        val salario_base = BigDecimal("1045.000000") // Reais
+        val valor_hora_pessoa = salario_base / horas_trabalho_mes.toBigDecimal()
+        // X = ((1045 / 80)/60) * 25 = 13,0625 / 60 * 25 = 0,217708 * 25 = 5,44
+        val custo_mao_obra =
+            (valor_hora_pessoa / BigDecimal("60.00")) * tempo_bordado.toBigDecimal()
+        return custo_mao_obra
     }
 
     private fun calcula_tempo_bordado(bordado: Bordado): Double {
-        // Calculo de tempo de bordado
         val velocidade_maquina = 500 // Pontos por minuto
         val tempo_troca_cor = 1.0 // Minutos
         val tempo_preparacao = 3.0 // Minutos
@@ -102,10 +130,9 @@ class Inicial : AppCompatActivity() {
         return tempo_bordado
     }
 
-    @SuppressLint("ShowToast")
     private fun calcula_custo_total(
-        context: Context,
         bordado: Bordado,
+
         quantidade: String
     ): BigDecimal {
         val custo_linha_bordado = calcula_custo_linha_bordado(bordado)
@@ -121,14 +148,14 @@ class Inicial : AppCompatActivity() {
                         custos_tempo_bordado
                 ) * quantidade.toBigDecimal()
 
-        Toast.makeText(context,
-                "Custos: ${custo_linha_bordado.formataParaBrasileiro()} + " +
-                "${custo_linha_bobina.formataParaBrasileiro()} + " +
-                "${custo_entretela.formataParaBrasileiro()} + " +
-                "${custos_tempo_bordado.formataParaBrasileiro()} = " +
-                        "${custo.formataParaBrasileiro()}",
-            Toast.LENGTH_LONG
-        ).show()
+//        Toast.makeText(this,
+//                "Custos: ${custo_linha_bordado} + " +
+//                "${custo_linha_bobina} + " +
+//                "${custo_entretela} + " +
+//                "${custos_tempo_bordado} = " +
+//                        "${custo}",
+//            Toast.LENGTH_LONG
+//        ).show()
         return custo
     }
 
@@ -166,14 +193,6 @@ class Inicial : AppCompatActivity() {
         val custo_metro_linha = custo_cone_linha.div(quantidade_linha_por_cone.toBigDecimal())
         val consumo_do_bordado = (bordado.pontos / 1000) * consumo_linha_por_1000_pontos
         val custo_linha_bordado = custo_metro_linha.multiply(consumo_do_bordado.toBigDecimal())
-//        Toast.makeText(this,
-//            "$custo_cone_linha " +
-//                    "${quantidade_linha_por_cone.toBigDecimal()} " +
-//                    "$custo_metro_linha, " +
-//                    "$consumo_do_bordado, " +
-//                    "${custo_linha_bordado}, " +
-//                    "${custo_linha_bordado}",
-//            Toast.LENGTH_LONG).show()
 
         return custo_linha_bordado
     }
@@ -188,13 +207,5 @@ class Inicial : AppCompatActivity() {
 
 //        bastidor_spinner.onItemSelectedListener = this
     }
-
-//    override fun onNothingSelected(parent: AdapterView<*>?) {
-//        TODO("Not yet implemented")
-//    }
-//
-//    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//        bastidor = parent!!.getItemAtPosition(position) as Bastidor
-//    }
 }
 
