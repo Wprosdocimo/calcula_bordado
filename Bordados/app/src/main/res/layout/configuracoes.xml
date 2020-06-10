@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_bastidor_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Bastidores"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider_bastidor"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_bastidor_label" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_tempo_bordado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tempo de Bordado:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_bastidor" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_velocidade_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Velocidade da máquina:"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@id/cfg_velocidade_editText"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_tempo_bordado" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cfg_velocidade_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:text="500"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/cfg_velocidade_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cfg_velocidade_label"
+        app:layout_constraintTop_toTopOf="@id/cfg_velocidade_label" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_troca_cor_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tempo de troca de cor:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/cfg_troca_cor_editText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_editText" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cfg_troca_cor_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:text="1"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/cfg_troca_cor_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cfg_troca_cor_label"
+        app:layout_constraintTop_toTopOf="@id/cfg_troca_cor_label" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_preparacao_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tempo de preparação:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/cfg_preparacao_editText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_editText" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cfg_preparacao_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:text="3"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/cfg_preparacao_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cfg_preparacao_label"
+        app:layout_constraintTop_toTopOf="@id/cfg_preparacao_label" />
+
+    <View
+        android:id="@+id/divider_tempo_bordado"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_preparacao_editText" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_mao_obra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Mão de obra"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_tempo_bordado" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_horas_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Horas trabalhadas: (por dia)"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_mao_obra" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cfg_horas_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:text="5"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/cfg_horas_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cfg_horas_label"
+        app:layout_constraintTop_toTopOf="@id/cfg_horas_label" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cfg_dias_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Dias trabalhados: (por mês)"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cfg_horas_editText" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/cfg_dias_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:text="22"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cfg_dias_label"
+        app:layout_constraintTop_toTopOf="@id/cfg_dias_label"
+        app:layout_constraintBottom_toBottomOf="@id/cfg_dias_label"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

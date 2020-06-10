@@ -24,17 +24,31 @@ Campos de entrada:
 
 - Bastidores
 
+- Tempo de bordado
+  - Velocidade da maquina
+  - tempo de troca de cor
+  - tempo de preparação
+
+- Lucro desejado
+
 - Custos de material:
-  - Cone de linha
-  - Linha de bobina
+  - Linha bordado
+    - Custo do cone
+    - Quantidade de linha por cone
+    - Consumo de linha por 1000 pontos (6.5)
+  - Linha bobina
+    - Custo do cone
+    - Quantidade de linha por cone
+    - Consumo de linha por 1000 pontos (2.5)
   - Entretela
-    - Largura
-    - Comprimento
+    - Custo (do metro)
+    - largura
+    - comprimento (sempre 1 metro?)
 
 - Mão de obra (valor da hora trabalhada):
   - Numero de horas trabalhadas (por dia)
   - Numero de dias trabalhados (por mês)
-  - Previsão de ganho (Calculado ou informado)
+  - Previsão de ganho (Salário, Calculado ou informado)
 
 - Custos fixos:
   - Aluguel
@@ -42,7 +56,6 @@ Campos de entrada:
   - Agua
   - Telefone / Internet
   - Manutenção (valor anual)
-
 
 ## Tecnologias
 
@@ -55,7 +68,3 @@ Ferramentas:
 - Android Studio
   - versão minima 4.4
   - versão 10 do android;
-
-
-
-
