@@ -1,184 +1,709 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_bastidor_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Bastidores"
-        android:textSize="18sp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="-283dp">
 
-    <View
-        android:id="@+id/divider_bastidor"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_bastidor_label" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_tempo_bordado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Tempo de Bordado:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider_bastidor" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_bastidor_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Bastidores"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_velocidade_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Velocidade da máquina:"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toStartOf="@id/cfg_velocidade_editText"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_tempo_bordado" />
+            <View
+                android:id="@+id/divider_bastidor"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_bastidor_label" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/cfg_velocidade_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="4"
-        android:text="500"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@id/cfg_velocidade_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cfg_velocidade_label"
-        app:layout_constraintTop_toTopOf="@id/cfg_velocidade_label" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_lucro_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Lucro desejado: (%)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_lucro_editText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_bastidor" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_lucro_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:text="10"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_lucro_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_lucro_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_lucro_label" />
+
+            <View
+                android:id="@+id/divider_lucro"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_lucro_editText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_tempo_bordado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tempo de Bordado:"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_lucro" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_velocidade_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Velocidade da máquina:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/cfg_velocidade_editText"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_tempo_bordado" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_velocidade_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:text="500"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_velocidade_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cfg_velocidade_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_velocidade_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_troca_cor_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tempo de troca de cor:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_troca_cor_editText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_editText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_troca_cor_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:text="1"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_troca_cor_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_troca_cor_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_troca_cor_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_preparacao_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tempo de preparação:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_preparacao_editText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_editText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_preparacao_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:text="3"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_preparacao_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_preparacao_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_preparacao_label" />
+
+            <View
+                android:id="@+id/divider_tempo_bordado"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_preparacao_editText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_mao_obra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Mão de obra"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_tempo_bordado" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_horas_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Horas trabalhadas: (por dia)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_mao_obra" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_horas_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:text="5"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_horas_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_horas_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_horas_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_dias_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Dias trabalhados: (por mês)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_horas_editText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_dias_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:text="22"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_dias_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_dias_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_dias_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_salario_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Previsão de ganho: (por mês)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_dias_editText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_salario_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="6"
+                android:text="1045.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_salario_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_salario_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_salario_label" />
+
+            <View
+                android:id="@+id/divider_mo_bordado"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_salario_editText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custos_fixos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Custos fixos"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_mo_bordado" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_manutencao_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Manutenção: (anual)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custos_fixos" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_manutencao_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="300.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_manutencao_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_manutencao_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_manutencao_label" />
 
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_troca_cor_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Tempo de troca de cor:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/cfg_troca_cor_editText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_editText" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_aluguel_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Aluguel: (mensal)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_manutencao_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_manutencao_label" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/cfg_troca_cor_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="2"
-        android:text="1"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@id/cfg_troca_cor_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cfg_troca_cor_label"
-        app:layout_constraintTop_toTopOf="@id/cfg_troca_cor_label" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_aluguel_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="0.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_aluguel_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_aluguel_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_aluguel_label" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_preparacao_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Tempo de preparação:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/cfg_preparacao_editText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_editText" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_luz_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Luz: (mensal)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_aluguel_label" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/cfg_preparacao_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="2"
-        android:text="3"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@id/cfg_preparacao_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cfg_preparacao_label"
-        app:layout_constraintTop_toTopOf="@id/cfg_preparacao_label" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_luz_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="40.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_luz_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_luz_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_luz_label" />
 
-    <View
-        android:id="@+id/divider_tempo_bordado"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_preparacao_editText" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_agua_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Agua: (mensal)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_luz_label" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_mao_obra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Mão de obra"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider_tempo_bordado" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_agua_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="0.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_agua_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_agua_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_agua_label" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_horas_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Horas trabalhadas: (por dia)"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_mao_obra" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_telefone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Telefone / Internet: (mensal)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_agua_label" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/cfg_horas_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="2"
-        android:text="5"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@id/cfg_horas_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cfg_horas_label"
-        app:layout_constraintTop_toTopOf="@id/cfg_horas_label" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_telefone_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="50.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_telefone_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_telefone_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_telefone_label" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cfg_dias_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Dias trabalhados: (por mês)"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfg_horas_editText" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/cfg_dias_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="2"
-        android:text="22"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cfg_dias_label"
-        app:layout_constraintTop_toTopOf="@id/cfg_dias_label"
-        app:layout_constraintBottom_toBottomOf="@id/cfg_dias_label"/>
+            <View
+                android:id="@+id/divider_custos_fixos"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_telefone_label" />
 
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custos_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Custos variáveis (material)"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_custos_fixos" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custos_linha_bordado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Linha de bordado"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custos_material" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custo_cone_bordado_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Custo do cone:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custos_linha_bordado" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_custo_cone_bordado_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="10.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bordado_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_custo_cone_bordado_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_custo_cone_bordado_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_qtde_linha_cone_bordado_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Quantidade por cone: (metros)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custo_cone_bordado_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_qtde_linha_cone_bordado_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="4000"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_qtde_linha_cone_bordado_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_qtde_linha_cone_bordado_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_qtde_linha_cone_bordado_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_consumo_linha_bordado_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Consumo por 1000 pontos: (metros)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_qtde_linha_cone_bordado_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_consumo_linha_bordado_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="6.5"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_consumo_linha_bordado_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_consumo_linha_bordado_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_consumo_linha_bordado_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custos_linha_bobina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Linha de bobina"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_consumo_linha_bordado_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custo_cone_bobina_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Custo do cone:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custos_linha_bobina" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_custo_cone_bobina_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="10.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bobina_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_custo_cone_bobina_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_custo_cone_bobina_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_qtde_linha_cone_bobina_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Quantidade por cone: (metros)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custo_cone_bobina_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_qtde_linha_cone_bobina_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="15000"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_qtde_linha_cone_bobina_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_qtde_linha_cone_bobina_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_qtde_linha_cone_bobina_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_consumo_linha_bobina_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Consumo por 1000 pontos: (metros)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_qtde_linha_cone_bobina_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_consumo_linha_bobina_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:text="2.5"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_consumo_linha_bobina_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_consumo_linha_bobina_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_consumo_linha_bobina_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custos_entretela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Entretela"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_consumo_linha_bobina_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_custo_entretela_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Custo do metro:"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custos_entretela" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_custo_entretela_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="12.00"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_custo_entretela_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_custo_entretela_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_custo_entretela_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_largura_entretela_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Largura: (milimetros)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_custo_entretela_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_largura_entretela_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="900"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_largura_entretela_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_largura_entretela_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_largura_entretela_label" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cfg_comprimento_entretela_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Comprimento: (milimetros)"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_largura_entretela_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cfg_comprimento_entretela_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:text="1000"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/cfg_comprimento_entretela_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cfg_comprimento_entretela_label"
+                app:layout_constraintTop_toTopOf="@id/cfg_comprimento_entretela_label" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
