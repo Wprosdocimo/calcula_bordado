@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import br.com.wprosdocimo.bordados.R
 import br.com.wprosdocimo.bordados.extension.formataParaBrasileiro
 import br.com.wprosdocimo.bordados.model.Bastidor
@@ -25,11 +26,17 @@ class Inicial : AppCompatActivity() {
         Bastidor("B", 140, 200),
         Bastidor("C", 50, 50)
     )
+//    val db = Room.databaseBuilder(
+//        applicationContext,
+//        AppDatabase::class.java, "bordados"
+//    ).build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         configuraSpinner()
         configuraBotaoCalcular()
+
+
     }
 
     private fun configuraBotaoCalcular() {

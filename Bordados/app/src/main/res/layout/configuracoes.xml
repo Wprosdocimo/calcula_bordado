@@ -17,25 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_bastidor_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Bastidores"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/divider_bastidor"
+            <Button
+                android:id="@+id/cfg_button"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:text="Salvar Configuraçao"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_bastidor_label" />
+                app:layout_constraintEnd_toEndOf="parent"
+                />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/cfg_lucro_label"
@@ -48,7 +39,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_bastidor" />
+                app:layout_constraintTop_toBottomOf="@id/cfg_button" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/cfg_lucro_editText"
@@ -345,7 +336,7 @@
                 android:text="Luz: (mensal)"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintHorizontal_bias="0.458"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cfg_aluguel_label" />
 
@@ -553,7 +544,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="5"
-                android:text="10.00"
+                android:text="30.00"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bobina_label"
