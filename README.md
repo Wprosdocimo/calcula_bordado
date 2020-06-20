@@ -18,11 +18,10 @@ Campos de entrada:
 ### Tela de resultado
 
 - Custo calculado;
-  - Mão de obra;
-  - Custos de material;
 - Preço sugerido;
+- Tempo de produção;
 
-> Ainda não implementada
+![Tela de resultado](Resultado.jpg)
 
 ### Tela de configuração
 
@@ -77,3 +76,14 @@ Ferramentas:
 - Android Studio
   - versão minima 4.4
   - versão 10 do android;
+
+## Proximos Passos
+
+- ~~Definir tela de resultado do cálculo;~~
+- Definir o layout da tela de gestão dos bastidores;
+  - ListView com float button;
+  - AlertDialog (para adição);
+  - Definir tela de adição de bastidor;
+- Separar grupos de configuração com CardView;
+- Acessar dados do Database para popular os editTexts da tela de configuração;
+- Acessar os dados do Database para fazer o cálculo na tela inicial;

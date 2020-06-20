@@ -2,11 +2,10 @@ package br.com.wprosdocimo.bordados.ui.activifty
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import br.com.wprosdocimo.bordados.R
@@ -14,6 +13,7 @@ import br.com.wprosdocimo.bordados.extension.formataParaBrasileiro
 import br.com.wprosdocimo.bordados.model.Bastidor
 import br.com.wprosdocimo.bordados.model.Bordado
 import kotlinx.android.synthetic.main.inicial_activity.*
+import kotlinx.android.synthetic.main.resultado_dialog.view.*
 import java.math.BigDecimal
 
 //class Inicial : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -35,8 +35,6 @@ class Inicial : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         configuraSpinner()
         configuraBotaoCalcular()
-
-
     }
 
     private fun configuraBotaoCalcular() {
@@ -58,27 +56,37 @@ class Inicial : AppCompatActivity() {
             )
             val valor = calcula_valor_final(custo)
 
-            Toast.makeText(
-                this,
-                "Pontos: ${bordado.pontos}," +
-                        " Cores: ${bordado.cores}," +
-                        " Qtde: $quantidade," +
-                        " Bastidor (bordado): ${bordado.bastidor}" +
-                        " Tempo de bordado: $tempo_bordado min." +
-                        " Custo Calculado: ${custo.formataParaBrasileiro()}" +
-                        " Valor: ${valor.formataParaBrasileiro()}",
-                Toast.LENGTH_LONG
-            ).show()
+            val viewCriada = LayoutInflater.from(this)
+                .inflate(R.layout.resultado_dialog,
+                    window.decorView as ViewGroup,
+                    false)
+            viewCriada.custo_calculado.text = custo.formataParaBrasileiro()
+            viewCriada.preco_minimo.text = valor.formataParaBrasileiro()
+            viewCriada.tempo_bordado.text = (tempo_bordado * quantidade.toInt()).toString()
+
+            AlertDialog.Builder(this)
+                .setTitle("Resultado")
+                .setView(viewCriada)
+                .setPositiveButton("OK", null)
+                .show()
+
+//            Toast.makeText(
+//                this,
+//                "Pontos: ${bordado.pontos}," +
+//                        " Cores: ${bordado.cores}," +
+//                        " Qtde: $quantidade," +
+//                        " Bastidor (bordado): ${bordado.bastidor}" +
+//                        " Tempo de bordado: $tempo_bordado min." +
+//                        " Custo Calculado: ${custo.formataParaBrasileiro()}" +
+//                        " Valor: ${valor.formataParaBrasileiro()}",
+//                Toast.LENGTH_LONG
+//            ).show()
         }
     }
 
     private fun calcula_valor_final(custo: BigDecimal): BigDecimal {
         // Adiciona margem de lucro
         val lucro_desejado = 10 // 10%
-        // Calculo de percentual básico
-        // custo * (lucro_desejado + 100%)
-        // Markup 10% do valor final
-        // custo / (100% - lucro_desejado)
         val percentual = (100.0 - lucro_desejado) / 100
         val valor = custo / percentual.toBigDecimal()
         return valor
@@ -139,7 +147,6 @@ class Inicial : AppCompatActivity() {
 
     private fun calcula_custo_total(
         bordado: Bordado,
-
         quantidade: String
     ): BigDecimal {
         val custo_linha_bordado = calcula_custo_linha_bordado(bordado)
@@ -154,15 +161,6 @@ class Inicial : AppCompatActivity() {
                         custo_entretela +
                         custos_tempo_bordado
                 ) * quantidade.toBigDecimal()
-
-//        Toast.makeText(this,
-//                "Custos: ${custo_linha_bordado} + " +
-//                "${custo_linha_bobina} + " +
-//                "${custo_entretela} + " +
-//                "${custos_tempo_bordado} = " +
-//                        "${custo}",
-//            Toast.LENGTH_LONG
-//        ).show()
         return custo
     }
 
@@ -175,7 +173,6 @@ class Inicial : AppCompatActivity() {
         val area_bastidor = (bordado.bastidor.largura * bordado.bastidor.altura) / 2
 
         val quantidade_de_bastidores_por_area_de_entretela = area_entretela / area_bastidor
-
         val custo_entretela = custo_metro / quantidade_de_bastidores_por_area_de_entretela.toBigDecimal()
 
         return custo_entretela
