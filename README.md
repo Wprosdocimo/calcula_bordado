@@ -13,6 +13,8 @@ Campos de entrada:
 - Quantidade de pontos da matriz;
 - Quantidade de bordados por peça;
 
+![Tela Inicial](TelaInicial.jpg)
+
 ### Tela de resultado
 
 - Custo calculado;
@@ -20,9 +22,9 @@ Campos de entrada:
   - Custos de material;
 - Preço sugerido;
 
-### Tela de configuração
+> Ainda não implementada
 
-- Bastidores
+### Tela de configuração
 
 - Tempo de bordado
   - Velocidade da maquina
@@ -57,11 +59,18 @@ Campos de entrada:
   - Telefone / Internet
   - Manutenção (valor anual)
 
+![Tela de configurações](Configuracoes.jpg)
+
+### Tela CRUD Bastidores
+
+> Em definição
+
 ## Tecnologias
 
 - Android:
   - Kotlin
   - SQLite
+  - ROOM lib
 
 Ferramentas:
 
