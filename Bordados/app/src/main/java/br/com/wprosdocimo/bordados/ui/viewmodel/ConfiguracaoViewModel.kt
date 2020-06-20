@@ -16,7 +16,9 @@ class ConfiguracaoViewModel(application: Application) : AndroidViewModel(applica
     val configs: LiveData<Configuracao>
 
     init {
-        val configuracaoDao = AppDatabase.getDatabase(application, viewModelScope).configuracaoDao()
+        val configuracaoDao = AppDatabase
+            .getDatabase(application, viewModelScope)
+            .configuracaoDao()
         repository = ConfiguracaoRepository(configuracaoDao)
         configs = repository.configs
     }
