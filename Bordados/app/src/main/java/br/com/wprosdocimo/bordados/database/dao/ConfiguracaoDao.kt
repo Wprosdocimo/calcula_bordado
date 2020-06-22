@@ -10,13 +10,13 @@ import br.com.wprosdocimo.bordados.database.entities.Configuracao
 @Dao
 interface ConfiguracaoDao {
     @Query("SELECT * FROM configuracao ORDER BY id DESC LIMIT 1")
-    fun getConfig(): LiveData<Configuracao>
+    fun getConfig(): Configuracao
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(configuracao: Configuracao)
+    fun insert(configuracao: Configuracao)
 
     @Query("DELETE FROM configuracao")
-    suspend fun deleteAll()
+    fun deleteAll()
 }
 
 //@Dao

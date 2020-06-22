@@ -12,20 +12,20 @@ import kotlinx.coroutines.launch
 
 class ConfiguracaoViewModel(application: Application) : AndroidViewModel(application)  {
 
-    private val repository: ConfiguracaoRepository
-    val configs: LiveData<Configuracao>
-
-    init {
-        val configuracaoDao = AppDatabase
-            .getDatabase(application, viewModelScope)
-            .configuracaoDao()
-        repository = ConfiguracaoRepository(configuracaoDao)
-        configs = repository.configs
-    }
-
-    fun insert(configuracao: Configuracao) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(configuracao)
-    }
+//    private val repository: ConfiguracaoRepository
+//    val configs: LiveData<Configuracao>
+//
+//    init {
+//        val configuracaoDao = AppDatabase
+//            .getDatabase(application, viewModelScope)
+//            .configuracaoDao()
+//        repository = ConfiguracaoRepository(configuracaoDao)
+//        configs = repository.configs
+//    }
+//
+//    fun insert(configuracao: Configuracao) = viewModelScope.launch(Dispatchers.IO) {
+//        repository.insert(configuracao)
+//    }
 
 }
 
