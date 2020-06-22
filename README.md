@@ -9,8 +9,8 @@ Aplicativo android para calculo de valor de bordado partindo da entrada de valor
 Campos de entrada:
 
 - Tamanho do bastidor;
-- Quantidade de cores do bordado;
 - Quantidade de pontos da matriz;
+- Quantidade de cores do bordado;
 - Quantidade de bordados por peça;
 
 ![Tela Inicial](TelaInicial.jpg)
@@ -77,13 +77,19 @@ Ferramentas:
   - versão minima 4.4
   - versão 10 do android;
 
-## Proximos Passos
+## Próximos Passos
 
 - ~~Definir tela de resultado do cálculo;~~
+- ~~Acessar dados do Database para popular os editTexts da tela de configuração;~~
+- Acessar os dados do Database para fazer o cálculo na tela inicial;
+- Salvar as alterações de configuração na base de dados.
+
 - Definir o layout da tela de gestão dos bastidores;
   - ListView com float button;
   - AlertDialog (para adição);
   - Definir tela de adição de bastidor;
 - Separar grupos de configuração com CardView;
-- Acessar dados do Database para popular os editTexts da tela de configuração;
-- Acessar os dados do Database para fazer o cálculo na tela inicial;
+
+Ideias de melhoria:
+- Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar);
+- Levar em consideração a depreciação da maquina nos custos fixos;
