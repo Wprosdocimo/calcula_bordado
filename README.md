@@ -92,5 +92,5 @@ Ferramentas:
 
 Ideias de melhoria:
 
-- Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar);
-- Levar em consideração a depreciação da maquina nos custos fixos;
+- Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)
+- Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
