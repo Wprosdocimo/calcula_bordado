@@ -81,8 +81,8 @@ Ferramentas:
 
 - ~~Definir tela de resultado do cálculo;~~
 - ~~Acessar dados do Database para popular os editTexts da tela de configuração;~~
-- Acessar os dados do Database para fazer o cálculo na tela inicial;
-- Salvar as alterações de configuração na base de dados.
+- ~~Acessar os dados do Database para fazer o cálculo na tela inicial;~~
+- ~~Salvar as alterações de configuração na base de dados.~~
 
 - Definir o layout da tela de gestão dos bastidores;
   - ListView com float button;
@@ -91,5 +91,6 @@ Ferramentas:
 - Separar grupos de configuração com CardView;
 
 Ideias de melhoria:
+
 - Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar);
 - Levar em consideração a depreciação da maquina nos custos fixos;
