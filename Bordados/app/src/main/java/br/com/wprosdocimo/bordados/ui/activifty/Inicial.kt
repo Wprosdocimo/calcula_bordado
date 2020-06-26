@@ -8,9 +8,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.com.wprosdocimo.bordados.R
 import br.com.wprosdocimo.bordados.database.AppDatabase
+import br.com.wprosdocimo.bordados.database.dao.BastidorDao
 import br.com.wprosdocimo.bordados.database.dao.ConfiguracaoDao
+import br.com.wprosdocimo.bordados.database.entities.Bastidor
+import br.com.wprosdocimo.bordados.database.entities.Configuracao
 import br.com.wprosdocimo.bordados.extension.formataParaBrasileiro
-import br.com.wprosdocimo.bordados.model.Bastidor
+import br.com.wprosdocimo.bordados.model.BastidorModel
 import br.com.wprosdocimo.bordados.model.Bordado
 import kotlinx.android.synthetic.main.inicial_activity.*
 import kotlinx.android.synthetic.main.resultado_dialog.view.*
@@ -21,13 +24,15 @@ import java.math.BigDecimal
 class Inicial : AppCompatActivity() {
     // bastidores originais JANOME
     // A (110 x 125 mm)  B (140 x 200 mm) C (50 x 50 mm)
-    val bastidores: ArrayList<Bastidor> = arrayListOf(
-        Bastidor("A", 110, 125),
-        Bastidor("B", 140, 200),
-        Bastidor("C", 50, 50)
-    )
-    private lateinit var dao: ConfiguracaoDao
-    private val config by lazy { dao.getConfig() }
+//    val bastidores: ArrayList<BastidorModel> = arrayListOf(
+//        BastidorModel("A", 110, 125),
+//        BastidorModel("B", 140, 200),
+//        BastidorModel("C", 50, 50)
+//    )
+    private lateinit var daoConfig: ConfiguracaoDao
+    private lateinit var daoBastidor: BastidorDao
+    private val config by lazy { daoConfig.getConfig() }
+    private val bastidores by lazy { daoBastidor.buscaTodos() }
     private val ESCALA: Int = 6
     private val MESES: Int = 12
     private val MINUTOS: Int = 60
@@ -40,10 +45,50 @@ class Inicial : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        dao = AppDatabase.getInstance(this).configuracaoDao()
+        daoConfig = AppDatabase.getInstance(this).configuracaoDao()
+        daoBastidor = AppDatabase.getInstance(this).bastidorDao()
 
+        populaBanco()
         configuraSpinner()
         configuraBotaoCalcular()
+    }
+
+    private fun populaBanco() {
+        val configuracao = Configuracao(
+            id = 0,
+            lucro = 10,
+            velocidadeMaquina = 500,
+            tempoTrocaCor = 1.0,
+            tempoPreparacao = 3.0,
+            horasDias = 4.0,
+            diasMes = 20,
+            salario = 1045.00,
+            manutencao = 300.00,
+            aluguel = 0.00,
+            luz = 40.00,
+            agua = 0.00,
+            telefone = 50.00,
+            custoLinhaBordado = 10.00,
+            qtdeLinhaBordado = 4000,
+            consumoLinhaBordado = 6.5,
+            custoLinhaBobina = 30.00,
+            qtdeLinhaBobina = 15000,
+            consumoLinhaBobina = 2.5,
+            custoEntretela = 12.00,
+            larguraEntretela = 900,
+            comprimentoEntreleta = 1000
+        )
+        daoConfig.insert(configuracao)
+        daoBastidor.deleteAll()
+
+        val bastidorA = Bastidor(id = 0, nome = "A", largura = 110, altura = 125)
+        daoBastidor.insert(bastidorA)
+        val bastidorB = Bastidor(id = 0, nome = "B", largura = 140, altura = 200)
+        daoBastidor.insert(bastidorB)
+        val bastidorC = Bastidor(id = 0, nome = "C", largura = 50, altura = 50)
+        daoBastidor.insert(bastidorC)
+        val bastidorD = Bastidor(id = 0, nome = "D", largura = 500, altura = 500)
+        daoBastidor.insert(bastidorD)
     }
 
     private fun configuraBotaoCalcular() {

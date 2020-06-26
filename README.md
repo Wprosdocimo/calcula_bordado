@@ -84,12 +84,20 @@ Ferramentas:
 - ~~Acessar os dados do Database para fazer o cálculo na tela inicial;~~
 - ~~Salvar as alterações de configuração na base de dados.~~
 
+----
+
+- Configurar singleton na base de dados;
+- Criar tabela de bastidores no banco;
+- Configurar viewmodel na aplicação;
+- Configurar LiveData para configurações;
+- Criar viewmodel e livedata para bastidores;
 - Definir o layout da tela de gestão dos bastidores;
   - ListView com float button;
   - AlertDialog (para adição);
   - Definir tela de adição de bastidor;
 - Separar grupos de configuração com CardView;
 
+----
 Ideias de melhoria:
 
 - Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)

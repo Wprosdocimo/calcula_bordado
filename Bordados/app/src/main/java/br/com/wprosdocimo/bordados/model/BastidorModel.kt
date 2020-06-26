@@ -1,6 +1,6 @@
 package br.com.wprosdocimo.bordados.model
 
-class Bastidor(
+class BastidorModel(
     val nome: String = "",
     val altura: Int = 0,
     val largura: Int = 0

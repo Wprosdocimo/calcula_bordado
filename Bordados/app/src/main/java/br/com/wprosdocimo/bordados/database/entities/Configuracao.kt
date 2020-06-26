@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Configuracao(
     @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "lucro") val lucro: Int,
     @ColumnInfo(name = "velocidade_maquina") val velocidadeMaquina: Int,
     @ColumnInfo(name = "tempo_troca_cor") val tempoTrocaCor: Double,
     @ColumnInfo(name = "tempo_preparacao") val tempoPreparacao: Double,

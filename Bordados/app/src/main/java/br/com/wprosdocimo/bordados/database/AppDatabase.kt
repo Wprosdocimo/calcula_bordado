@@ -4,37 +4,23 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
+import br.com.wprosdocimo.bordados.database.dao.BastidorDao
 import br.com.wprosdocimo.bordados.database.dao.ConfiguracaoDao
+import br.com.wprosdocimo.bordados.database.entities.Bastidor
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 private const val NOME_BANCO_DE_DADOS = "app_bordados.db"
 
-@Database(entities = arrayOf(Configuracao::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Configuracao::class, Bastidor::class), version = 4, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun configuracaoDao(): ConfiguracaoDao
+    abstract fun bastidorDao(): BastidorDao
 
-    companion object {
-        fun getInstance(context: Context): AppDatabase {
-            return Room.databaseBuilder(
-                    context,
-                    AppDatabase::class.java,
-                    NOME_BANCO_DE_DADOS
-                )
-                .allowMainThreadQueries()
-                .build()
-        }
-    }
-
-//    private class AppDatabaseCallback(
-//        private val scope: CoroutineScope
-//    ) : RoomDatabase.Callback() {
-//        override fun onCreate(db: SupportSQLiteDatabase) {
-//            super.onCreate(db)
-//            INSTANCE?.let { database ->
-//                scope.launch {
+//    private class AppDatabaseCallback() : RoomDatabase.Callback() {
+//        override fun onOpen(db: SupportSQLiteDatabase) {
+//            super.onOpen(db)
+//            instancia?.let { database ->
+//                {
 //                    var configuracaoDao = database.configuracaoDao()
 //
 //                    // Delete all content here.
@@ -46,8 +32,8 @@ abstract class AppDatabase : RoomDatabase() {
 //                        velocidadeMaquina = 500,
 //                        tempoTrocaCor = 1.0,
 //                        tempoPreparacao = 3.0,
-//                        horasDias = 5.0,
-//                        diasMes = 22,
+//                        horasDias = 4.0,
+//                        diasMes = 20,
 //                        salario = 1045.00,
 //                        manutencao = 300.00,
 //                        aluguel = 0.00,
@@ -69,6 +55,30 @@ abstract class AppDatabase : RoomDatabase() {
 //            }
 //        }
 //    }
+
+
+    companion object {
+
+        private lateinit var instancia: AppDatabase
+
+        fun getInstance(context: Context): AppDatabase {
+
+            if(::instancia.isInitialized) return instancia
+
+            instancia = Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java,
+                    NOME_BANCO_DE_DADOS
+                )
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
+
+            return instancia
+        }
+    }
+
+
 
 //    companion object {
 //        // Singleton prevents multiple instances of database opening at the

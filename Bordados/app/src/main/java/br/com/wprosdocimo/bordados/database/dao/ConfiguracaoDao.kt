@@ -14,6 +14,8 @@ interface ConfiguracaoDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(configuracao: Configuracao)
+    
+    
 
     @Query("DELETE FROM configuracao")
     fun deleteAll()
