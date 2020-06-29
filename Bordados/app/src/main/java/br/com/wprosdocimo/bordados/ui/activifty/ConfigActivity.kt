@@ -17,6 +17,7 @@ class ConfigActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTitle("Configurações")
         setContentView(R.layout.configuracoes)
 
         val dao = AppDatabase.getInstance(this).configuracaoDao()

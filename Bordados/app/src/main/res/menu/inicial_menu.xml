@@ -3,8 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menu_bastidor"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="Bastidores"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_cfg"
         android:icon="@android:drawable/ic_menu_manage"
         android:title="Configurações"
         app:showAsAction="always"/>
+
 </menu>

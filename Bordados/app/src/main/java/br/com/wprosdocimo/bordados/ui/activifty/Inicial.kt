@@ -20,15 +20,8 @@ import kotlinx.android.synthetic.main.resultado_dialog.view.*
 import java.math.BigDecimal
 
 
-//class Inicial : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 class Inicial : AppCompatActivity() {
-    // bastidores originais JANOME
-    // A (110 x 125 mm)  B (140 x 200 mm) C (50 x 50 mm)
-//    val bastidores: ArrayList<BastidorModel> = arrayListOf(
-//        BastidorModel("A", 110, 125),
-//        BastidorModel("B", 140, 200),
-//        BastidorModel("C", 50, 50)
-//    )
+
     private lateinit var daoConfig: ConfiguracaoDao
     private lateinit var daoBastidor: BastidorDao
     private val config by lazy { daoConfig.getConfig() }
@@ -274,6 +267,11 @@ class Inicial : AppCompatActivity() {
         return when (item.itemId) {
             R.id.menu_cfg -> {
                 val intent = Intent(this, ConfigActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_bastidor -> {
+                val intent = Intent(this, BastidoresActivity::class.java)
                 startActivity(intent)
                 true
             }

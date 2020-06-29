@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nome_bastidor_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nome do Bastidor"
+        app:layout_constraintEnd_toEndOf="@id/nome_bastidor_editText"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@id/nome_bastidor_editText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nome_bastidor_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nome do bastidor"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/nome_bastidor_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <TextView
+        android:id="@+id/largura_bastidor_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Largura do Bastidor"
+        app:layout_constraintEnd_toEndOf="@id/nome_bastidor_editText"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@id/nome_bastidor_editText"
+        app:layout_constraintTop_toBottomOf="@id/nome_bastidor_editText" />
+
+    <EditText
+        android:id="@+id/largura_bastidor_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Largura do bastidor"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/largura_bastidor_textView" />
+
+    <TextView
+        android:id="@+id/altura_bastidor_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Altura do Bastidor"
+        app:layout_constraintEnd_toEndOf="@id/nome_bastidor_editText"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@id/nome_bastidor_editText"
+        app:layout_constraintTop_toBottomOf="@id/largura_bastidor_editText" />
+
+    <EditText
+        android:id="@+id/altura_bastidor_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Altura do bastidor"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/altura_bastidor_textView" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
