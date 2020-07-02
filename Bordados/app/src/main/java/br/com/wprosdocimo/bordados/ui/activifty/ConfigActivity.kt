@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import br.com.wprosdocimo.bordados.R
 import br.com.wprosdocimo.bordados.database.AppDatabase
+import br.com.wprosdocimo.bordados.database.dao.ConfiguracaoDao
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
+import br.com.wprosdocimo.bordados.repository.ConfiguracaoRepository
 import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
 import kotlinx.android.synthetic.main.configuracoes.*
 
@@ -14,16 +18,23 @@ class ConfigActivity : AppCompatActivity() {
 
     private lateinit var configuracaoViewModel: ConfiguracaoViewModel
     private lateinit var velocidade: String
+    private lateinit var daoConfig: ConfiguracaoDao
+    private lateinit var config: Configuracao
+    private val configData: LiveData<Configuracao> by lazy { ConfiguracaoRepository(daoConfig).configs }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTitle("Configurações")
         setContentView(R.layout.configuracoes)
 
-        val dao = AppDatabase.getInstance(this).configuracaoDao()
-        val config = dao.getConfig()
+//        val dao = AppDatabase.getInstance(this).configuracaoDao()
+//        val configData = dao.getConfig()
+        daoConfig = AppDatabase.getInstance(this).configuracaoDao()
+        configData.observe(this, Observer {
+            config = it
+        })
 
-//        Toast.makeText(this, "Id atual: ${config.id} | ${config.lucro}", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Id atual: ${config.id} | ${config.lucro}", Toast.LENGTH_LONG).show()
 
         cfg_lucro_editText.setText(config.lucro.toString())
         cfg_velocidade_editText.setText(config.velocidadeMaquina.toString())
@@ -84,7 +95,7 @@ class ConfigActivity : AppCompatActivity() {
                 larguraEntretela = cfg_largura_entretela_editText.text.toString().toInt(),
                 comprimentoEntreleta = cfg_comprimento_entretela_editText.text.toString().toInt()
             )
-            dao.insert(configNova)
+            daoConfig.insert(configNova)
 //            val teste = dao.getConfig()
 //            Toast.makeText(this, "Id novo: ${teste.id}", Toast.LENGTH_LONG).show()
             finish()

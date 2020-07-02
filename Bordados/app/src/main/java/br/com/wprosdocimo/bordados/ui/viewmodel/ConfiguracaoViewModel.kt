@@ -1,8 +1,10 @@
 package br.com.wprosdocimo.bordados.ui.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.wprosdocimo.bordados.database.AppDatabase
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
@@ -10,19 +12,19 @@ import br.com.wprosdocimo.bordados.repository.ConfiguracaoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ConfiguracaoViewModel(application: Application) : AndroidViewModel(application)  {
+class ConfiguracaoViewModel(context: Context) : ViewModel()  {
 
-//    private val repository: ConfiguracaoRepository
-//    val configs: LiveData<Configuracao>
-//
-//    init {
-//        val configuracaoDao = AppDatabase
-//            .getDatabase(application, viewModelScope)
-//            .configuracaoDao()
-//        repository = ConfiguracaoRepository(configuracaoDao)
-//        configs = repository.configs
-//    }
-//
+    private val repository: ConfiguracaoRepository
+    val configs: LiveData<Configuracao>
+
+    init {
+        val configuracaoDao = AppDatabase
+            .getInstance(context = context)
+            .configuracaoDao()
+        repository = ConfiguracaoRepository(configuracaoDao)
+        configs = repository.configs
+    }
+
 //    fun insert(configuracao: Configuracao) = viewModelScope.launch(Dispatchers.IO) {
 //        repository.insert(configuracao)
 //    }

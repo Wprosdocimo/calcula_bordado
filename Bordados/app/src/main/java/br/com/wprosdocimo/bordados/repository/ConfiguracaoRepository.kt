@@ -6,11 +6,11 @@ import br.com.wprosdocimo.bordados.database.entities.Configuracao
 
 class ConfiguracaoRepository(private val configuracaoDao: ConfiguracaoDao) {
 
-//    val configs: LiveData<Configuracao> = configuracaoDao.getConfig()
-//
-//    suspend fun insert(configuracao: Configuracao) {
-//        configuracaoDao.insert(configuracao)
-//    }
+    val configs: LiveData<Configuracao> = configuracaoDao.getConfig()
+
+    suspend fun insert(configuracao: Configuracao) {
+        configuracaoDao.insert(configuracao)
+    }
 }
 
 

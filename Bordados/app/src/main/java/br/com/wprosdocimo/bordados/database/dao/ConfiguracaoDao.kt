@@ -10,7 +10,7 @@ import br.com.wprosdocimo.bordados.database.entities.Configuracao
 @Dao
 interface ConfiguracaoDao {
     @Query("SELECT * FROM configuracao ORDER BY id DESC LIMIT 1")
-    fun getConfig(): Configuracao
+    fun getConfig(): LiveData<Configuracao>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(configuracao: Configuracao)

@@ -11,10 +11,36 @@ import br.com.wprosdocimo.bordados.database.entities.Configuracao
 
 private const val NOME_BANCO_DE_DADOS = "app_bordados.db"
 
-@Database(entities = arrayOf(Configuracao::class, Bastidor::class), version = 4, exportSchema = false)
+@Database(
+    entities = arrayOf(Configuracao::class, Bastidor::class),
+    version = 4,
+    exportSchema = false
+)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun configuracaoDao(): ConfiguracaoDao
     abstract fun bastidorDao(): BastidorDao
+
+    companion object {
+
+        private lateinit var instancia: AppDatabase
+
+        fun getInstance(context: Context): AppDatabase {
+
+            if (::instancia.isInitialized) return instancia
+
+            instancia = Room.databaseBuilder(
+                context,
+                AppDatabase::class.java,
+                NOME_BANCO_DE_DADOS
+            )
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
+
+            return instancia
+        }
+    }
+
 
 //    private class AppDatabaseCallback() : RoomDatabase.Callback() {
 //        override fun onOpen(db: SupportSQLiteDatabase) {
@@ -55,29 +81,6 @@ abstract class AppDatabase : RoomDatabase() {
 //            }
 //        }
 //    }
-
-
-    companion object {
-
-        private lateinit var instancia: AppDatabase
-
-        fun getInstance(context: Context): AppDatabase {
-
-            if(::instancia.isInitialized) return instancia
-
-            instancia = Room.databaseBuilder(
-                    context,
-                    AppDatabase::class.java,
-                    NOME_BANCO_DE_DADOS
-                )
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build()
-
-            return instancia
-        }
-    }
-
 
 
 //    companion object {
