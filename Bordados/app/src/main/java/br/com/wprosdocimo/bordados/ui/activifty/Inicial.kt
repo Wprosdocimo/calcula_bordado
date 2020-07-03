@@ -6,19 +6,15 @@ import android.view.*
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.wprosdocimo.bordados.R
-import br.com.wprosdocimo.bordados.database.AppDatabase
 import br.com.wprosdocimo.bordados.database.dao.BastidorDao
-import br.com.wprosdocimo.bordados.database.dao.ConfiguracaoDao
 import br.com.wprosdocimo.bordados.database.entities.Bastidor
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
 import br.com.wprosdocimo.bordados.extension.formataParaBrasileiro
 import br.com.wprosdocimo.bordados.model.Bordado
-import br.com.wprosdocimo.bordados.repository.BastidoresRepository
-import br.com.wprosdocimo.bordados.repository.ConfiguracaoRepository
+import br.com.wprosdocimo.bordados.ui.viewmodel.BastidorViewModel
 import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
 import kotlinx.android.synthetic.main.inicial_activity.*
 import kotlinx.android.synthetic.main.resultado_dialog.view.*
@@ -27,35 +23,28 @@ import java.math.BigDecimal
 
 class Inicial : AppCompatActivity() {
 
-    private lateinit var daoConfig: ConfiguracaoDao
     private lateinit var daoBastidor: BastidorDao
-    private lateinit var configViewModel: ConfiguracaoViewModel
+    private lateinit var viewModelConfig: ConfiguracaoViewModel
+    private lateinit var viewModelBastidores: BastidorViewModel
     private lateinit var config: Configuracao
-//    private val config by lazy { daoConfig.getConfig() }
-    private val configData: LiveData<Configuracao> by lazy { ConfiguracaoRepository(daoConfig).configs }
-//    private val config: Configuracao by lazy { configViewModel.configs }
-//    private val bastidores by lazy { daoBastidor.buscaTodos() }
-    private  val bastidores by lazy { BastidoresRepository(daoBastidor).bastidores }
 
     private val ESCALA: Int = 6
     private val MESES: Int = 12
     private val MINUTOS: Int = 60
 
-//    val db = Room.databaseBuilder(
-//        applicationContext,
-//        AppDatabase::class.java, "bordados"
-//    ).build()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        daoConfig = AppDatabase.getInstance(this).configuracaoDao()
-        daoBastidor = AppDatabase.getInstance(this).bastidorDao()
-        configViewModel = ViewModelProvider(this).get(ConfiguracaoViewModel::class.java)
+        val factory = ViewModelProvider.AndroidViewModelFactory(application)
+        viewModelConfig = ViewModelProvider(this, factory)
+            .get(ConfiguracaoViewModel::class.java)
+        viewModelBastidores = ViewModelProvider(this, factory)
+            .get(BastidorViewModel::class.java)
 
-        configData.observe(this, Observer {
-            config = it
-        })
+        viewModelConfig.configs
+            .observe(this, Observer {
+                config = it
+            })
 
 //        populaBanco()
         configuraSpinner()
@@ -87,7 +76,7 @@ class Inicial : AppCompatActivity() {
             larguraEntretela = 900,
             comprimentoEntreleta = 1000
         )
-        daoConfig.insert(configuracao)
+//        daoConfig.insert(configuracao)
         daoBastidor.deleteAll()
 
         val bastidorA = Bastidor(id = 0, nome = "A", largura = 110, altura = 125)
@@ -136,8 +125,7 @@ class Inicial : AppCompatActivity() {
     }
 
     private fun calcula_valor_final(custo: BigDecimal): BigDecimal {
-        // Adiciona margem de lucro
-        val lucro_desejado = 10 // 10%
+        val lucro_desejado = config.lucro
         val percentual = (100.0 - lucro_desejado) / 100
         val valor = custo / percentual.toBigDecimal()
         return valor
@@ -154,7 +142,6 @@ class Inicial : AppCompatActivity() {
 
         return custo_mao_obra + custos_fixos_por_bordado
     }
-
 
     private fun calcula_custos_fixos(
         horas_trabalho_mes: Double,
@@ -264,10 +251,13 @@ class Inicial : AppCompatActivity() {
     private fun configuraSpinner() {
         setContentView(R.layout.inicial_activity)
 
-        ArrayAdapter(this, android.R.layout.simple_spinner_item, bastidores).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            bastidor_spinner.adapter = adapter
-        }
+        viewModelBastidores.bastidores
+            .observe(this, Observer { bastidores ->
+                ArrayAdapter(this, android.R.layout.simple_spinner_item, bastidores).also { adapter ->
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    bastidor_spinner.adapter = adapter
+                }
+            })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -1,5 +1,6 @@
 package br.com.wprosdocimo.bordados.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,21 +16,9 @@ interface BastidorDao {
     fun buscaPorId(id: Int): Bastidor
 
     @Query("SELECT * FROM bastidor ORDER BY id")
-    fun buscaTodos(): List<Bastidor>
+    fun buscaTodos(): LiveData<List<Bastidor>>
 
     @Query("DELETE FROM bastidor")
     fun deleteAll()
 
 }
-
-//@Dao
-//interface ConfiguracaoDao {
-//    @Query("SELECT * FROM configuracao ORDER BY id DESC LIMIT 1")
-//    fun getConfig(): Configuracao
-//
-//    @Insert(onConflict = OnConflictStrategy.IGNORE)
-//    fun insert(configuracao: Configuracao)
-//
-//    @Query("DELETE FROM configuracao")
-//    fun deleteAll()
-//}

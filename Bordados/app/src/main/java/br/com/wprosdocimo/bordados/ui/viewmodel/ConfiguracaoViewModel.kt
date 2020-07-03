@@ -12,22 +12,22 @@ import br.com.wprosdocimo.bordados.repository.ConfiguracaoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ConfiguracaoViewModel(context: Context) : ViewModel()  {
+class ConfiguracaoViewModel(application: Application) : AndroidViewModel(application)  {
 
     private val repository: ConfiguracaoRepository
     val configs: LiveData<Configuracao>
 
     init {
         val configuracaoDao = AppDatabase
-            .getInstance(context = context)
+            .getInstance(application)
             .configuracaoDao()
         repository = ConfiguracaoRepository(configuracaoDao)
         configs = repository.configs
     }
 
-//    fun insert(configuracao: Configuracao) = viewModelScope.launch(Dispatchers.IO) {
-//        repository.insert(configuracao)
-//    }
+    fun insert(configuracao: Configuracao) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(configuracao)
+    }
 
 }
 
