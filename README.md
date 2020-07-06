@@ -83,19 +83,20 @@ Ferramentas:
 - ~~Acessar dados do Database para popular os editTexts da tela de configuração;~~
 - ~~Acessar os dados do Database para fazer o cálculo na tela inicial;~~
 - ~~Salvar as alterações de configuração na base de dados.~~
+- ~~Configurar singleton na base de dados;~~
+- ~~Criar tabela de bastidores no banco;~~
+- ~~Configurar viewmodel na aplicação;~~
+- ~~Configurar LiveData para configurações;~~
+- ~~Criar viewmodel e livedata para bastidores;~~
+- ~~Definir o layout da tela de gestão dos bastidores;~~
+  - ~~ListView com float button;~~
+  - ~~AlertDialog (para adição);~~
+  - ~~Definir tela de adição de bastidor;~~
 
 ----
 
-- Configurar singleton na base de dados;
-- Criar tabela de bastidores no banco;
-- Configurar viewmodel na aplicação;
-- Configurar LiveData para configurações;
-- Criar viewmodel e livedata para bastidores;
-- Definir o layout da tela de gestão dos bastidores;
-  - ListView com float button;
-  - AlertDialog (para adição);
-  - Definir tela de adição de bastidor;
 - Separar grupos de configuração com CardView;
+- Configurar inserção/edição/deleção de bastidores;
 
 ----
 Ideias de melhoria:
