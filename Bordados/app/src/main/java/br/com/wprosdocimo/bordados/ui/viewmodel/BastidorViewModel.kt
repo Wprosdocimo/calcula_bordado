@@ -22,7 +22,14 @@ class BastidorViewModel(application: Application) : AndroidViewModel(application
         bastidores = repository.bastidores
     }
 
-    fun insert(bastidor: Bastidor) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(bastidor)
+    fun salva(bastidor: Bastidor) = viewModelScope.launch(Dispatchers.IO) {
+        repository.salva(bastidor)
     }
+
+
+    fun remove(bastidor: Bastidor) {
+        repository.remove(bastidor)
+    }
+
+    fun buscaPorId(id: Int): Bastidor = repository.buscaPorId(id)
 }

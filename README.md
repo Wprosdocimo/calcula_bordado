@@ -95,8 +95,8 @@ Ferramentas:
 
 ----
 
-- Separar grupos de configuração com CardView;
 - Configurar inserção/edição/deleção de bastidores;
+- Separar grupos de configuração com CardView;
 
 ----
 Ideias de melhoria:

@@ -8,7 +8,13 @@ class BastidoresRepository(private val bastidorDao: BastidorDao) {
 
     val bastidores: LiveData<List<Bastidor>> = bastidorDao.buscaTodos()
 
-    suspend fun insert(bastidor: Bastidor) {
-        bastidorDao.insert(bastidor)
+    fun salva(bastidor: Bastidor) {
+        bastidorDao.salva(bastidor)
     }
+
+    fun remove(bastidor: Bastidor) {
+        bastidorDao.remove(bastidor)
+    }
+
+    fun buscaPorId(id: Int): Bastidor = bastidorDao.buscaPorId(id)
 }

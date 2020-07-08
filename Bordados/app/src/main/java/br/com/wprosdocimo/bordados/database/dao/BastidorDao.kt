@@ -1,16 +1,13 @@
 package br.com.wprosdocimo.bordados.database.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import br.com.wprosdocimo.bordados.database.entities.Bastidor
 
 @Dao
 interface BastidorDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(bastidor: Bastidor)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun salva(bastidor: Bastidor)
 
     @Query("SELECT * FROM bastidor WHERE id = :id ")
     fun buscaPorId(id: Int): Bastidor
@@ -21,4 +18,6 @@ interface BastidorDao {
     @Query("DELETE FROM bastidor")
     fun deleteAll()
 
+    @Delete
+    fun remove(bastidor: Bastidor)
 }

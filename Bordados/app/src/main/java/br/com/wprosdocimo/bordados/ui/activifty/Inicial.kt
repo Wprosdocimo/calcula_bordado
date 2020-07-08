@@ -34,6 +34,7 @@ class Inicial : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.inicial_activity)
 
         val factory = ViewModelProvider.AndroidViewModelFactory(application)
         viewModelConfig = ViewModelProvider(this, factory)
@@ -80,11 +81,11 @@ class Inicial : AppCompatActivity() {
         daoBastidor.deleteAll()
 
         val bastidorA = Bastidor(id = 0, nome = "A", largura = 110, altura = 125)
-        daoBastidor.insert(bastidorA)
+        daoBastidor.salva(bastidorA)
         val bastidorB = Bastidor(id = 0, nome = "B", largura = 140, altura = 200)
-        daoBastidor.insert(bastidorB)
+        daoBastidor.salva(bastidorB)
         val bastidorC = Bastidor(id = 0, nome = "C", largura = 50, altura = 50)
-        daoBastidor.insert(bastidorC)
+        daoBastidor.salva(bastidorC)
     }
 
     private fun configuraBotaoCalcular() {
@@ -249,7 +250,7 @@ class Inicial : AppCompatActivity() {
     }
 
     private fun configuraSpinner() {
-        setContentView(R.layout.inicial_activity)
+
 
         viewModelBastidores.bastidores
             .observe(this, Observer { bastidores ->

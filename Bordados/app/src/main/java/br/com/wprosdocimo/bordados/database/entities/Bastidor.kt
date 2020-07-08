@@ -15,6 +15,6 @@ import androidx.room.PrimaryKey
         if ( nome == "" ) {
             return nome
         }
-        return "$nome ( $altura x $largura mm)"
+        return "$nome ( $altura x $largura mm) ($id)"
     }
 }
