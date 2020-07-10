@@ -9,6 +9,9 @@ interface BastidorDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun salva(bastidor: Bastidor)
 
+    @Delete
+    fun remove(bastidor: Bastidor)
+
     @Query("SELECT * FROM bastidor WHERE id = :id ")
     fun buscaPorId(id: Int): Bastidor
 
@@ -17,7 +20,4 @@ interface BastidorDao {
 
     @Query("DELETE FROM bastidor")
     fun deleteAll()
-
-    @Delete
-    fun remove(bastidor: Bastidor)
 }

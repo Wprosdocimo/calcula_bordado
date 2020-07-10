@@ -1,49 +1,38 @@
 package br.com.wprosdocimo.bordados.ui.activifty
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.wprosdocimo.bordados.R
-import br.com.wprosdocimo.bordados.database.AppDatabase
-import br.com.wprosdocimo.bordados.database.dao.ConfiguracaoDao
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
-import br.com.wprosdocimo.bordados.repository.ConfiguracaoRepository
 import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
 import kotlinx.android.synthetic.main.configuracoes.*
 
 class ConfigActivity : AppCompatActivity() {
 
-//    private lateinit var configuracaoViewModel: ConfiguracaoViewModel
-//    private lateinit var velocidade: String
-//    private lateinit var daoConfig: ConfiguracaoDao
     private lateinit var config: Configuracao
     private lateinit var viewModel: ConfiguracaoViewModel
-//    private val configData: LiveData<Configuracao> by lazy { ConfiguracaoRepository(daoConfig).configs }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTitle("Configurações")
         setContentView(R.layout.configuracoes)
 
-
         val factory = ViewModelProvider.AndroidViewModelFactory(application)
         viewModel = ViewModelProvider(this, factory).get(ConfiguracaoViewModel::class.java)
-
         viewModel.configs
             .observe(this, Observer {
                 config = it
                 populaCampos()
             })
+        configuraBotaoSalvar()
+    }
 
-        val button = findViewById<Button>(R.id.cfg_button)
-        button.setOnClickListener {
+    private fun configuraBotaoSalvar() {
+        cfg_button.setOnClickListener {
             val configNova = Configuracao(
-                id = 0,
+                id = config.id,
                 lucro = cfg_lucro_editText.text.toString().toInt(),
                 velocidadeMaquina = cfg_velocidade_editText.text.toString().toInt(),
                 tempoTrocaCor = cfg_troca_cor_editText.text.toString().toDouble(),
@@ -66,9 +55,7 @@ class ConfigActivity : AppCompatActivity() {
                 larguraEntretela = cfg_largura_entretela_editText.text.toString().toInt(),
                 comprimentoEntreleta = cfg_comprimento_entretela_editText.text.toString().toInt()
             )
-            viewModel.insert(configNova)
-//            val teste = dao.getConfig()
-//            Toast.makeText(this, "Id novo: ${teste.id}", Toast.LENGTH_LONG).show()
+            viewModel.salva(configNova)
             finish()
         }
     }

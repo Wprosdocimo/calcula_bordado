@@ -3,6 +3,7 @@ package br.com.wprosdocimo.bordados.ui.activifty
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -23,30 +24,35 @@ class BastidoresActivity : AppCompatActivity() {
         setTitle("Bastidores")
         setContentView(R.layout.activity_bastidores)
         setSupportActionBar(findViewById(R.id.toolbar))
-
         val factory = ViewModelProvider.AndroidViewModelFactory(application)
         viewModel = ViewModelProvider(this, factory)
             .get(BastidorViewModel::class.java)
         viewModel.bastidores
             .observe(this, Observer { bastidores ->
-                bastidores_listview.adapter = ArrayAdapter(
-                    this,
-                    android.R.layout.simple_list_item_1, bastidores
-                )
-                bastidores_listview.setOnItemClickListener { parent, view, position, id ->
-                    val bastidorSelecionado = bastidores[position]
-                    chamaDialog("edita", bastidorSelecionado)
-                }
-                bastidores_listview.setOnItemLongClickListener { _, _, position, _ ->
-                    val bastidorSelecionado = bastidores[position]
-                    viewModel.remove(bastidorSelecionado)
-                    return@setOnItemLongClickListener true
-                }
+                configuraListView(bastidores)
             })
+        configuraFAB()
+    }
 
-
+    private fun configuraFAB() {
         fab.setOnClickListener {
             chamaDialog()
+        }
+    }
+
+    private fun configuraListView(bastidores: List<Bastidor>) {
+        bastidores_listview.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1, bastidores
+        )
+        bastidores_listview.setOnItemClickListener { parent, view, position, id ->
+            val bastidorSelecionado = bastidores[position]
+            chamaDialog("edita", bastidorSelecionado)
+        }
+        bastidores_listview.setOnItemLongClickListener { _, _, position, _ ->
+            val bastidorSelecionado = bastidores[position]
+            viewModel.remove(bastidorSelecionado)
+            return@setOnItemLongClickListener true
         }
     }
 
@@ -72,27 +78,30 @@ class BastidoresActivity : AppCompatActivity() {
                 campoAltura.setText(bastidor.altura.toString())
                 campoLargura.setText(bastidor.largura.toString())
             } else {
-                TODO("Toast")
+                Toast.makeText(
+                    application,
+                    "Não foi encontrado o bastidor selecionado!",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
 
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(titulo)
-        builder.setView(viewCriada)
-        builder.setPositiveButton(tituloBotaoPositivo) { _, _ ->
-            val nome = campoNome.text.toString()
-            val largura = campoLargura.text.toString()
-            val altura = campoAltura.text.toString()
-
-            val novoBastidor = Bastidor(
-                id = id,
-                nome = nome,
-                largura = largura.toInt(),
-                altura = altura.toInt()
-            )
-            viewModel.salva(novoBastidor)
-        }
-        builder.setNegativeButton("Cancelar", null)
-        builder.show()
+        AlertDialog.Builder(this)
+            .setTitle(titulo)
+            .setView(viewCriada)
+            .setPositiveButton(tituloBotaoPositivo) { _, _ ->
+                val nome = campoNome.text.toString()
+                val largura = campoLargura.text.toString()
+                val altura = campoAltura.text.toString()
+                val novoBastidor = Bastidor(
+                    id = id,
+                    nome = nome,
+                    largura = largura.toInt(),
+                    altura = altura.toInt()
+                )
+                viewModel.salva(novoBastidor)
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
     }
 }

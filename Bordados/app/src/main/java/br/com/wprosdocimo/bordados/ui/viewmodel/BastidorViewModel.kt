@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BastidorViewModel(application: Application) : AndroidViewModel(application) {
+
     private val repository: BastidoresRepository
     val bastidores: LiveData<List<Bastidor>>
 
@@ -26,10 +27,7 @@ class BastidorViewModel(application: Application) : AndroidViewModel(application
         repository.salva(bastidor)
     }
 
-
     fun remove(bastidor: Bastidor) {
         repository.remove(bastidor)
     }
-
-    fun buscaPorId(id: Int): Bastidor = repository.buscaPorId(id)
 }

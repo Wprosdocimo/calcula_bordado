@@ -6,5 +6,4 @@ class Bordado(
     val pontos: Int,
     val cores: Int,
     val bastidor: Bastidor
-) {
-}
+)

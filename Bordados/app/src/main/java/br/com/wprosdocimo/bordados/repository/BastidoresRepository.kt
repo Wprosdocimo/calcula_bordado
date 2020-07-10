@@ -15,6 +15,4 @@ class BastidoresRepository(private val bastidorDao: BastidorDao) {
     fun remove(bastidor: Bastidor) {
         bastidorDao.remove(bastidor)
     }
-
-    fun buscaPorId(id: Int): Bastidor = bastidorDao.buscaPorId(id)
 }

@@ -92,14 +92,15 @@ Ferramentas:
   - ~~ListView com float button;~~
   - ~~AlertDialog (para adição);~~
   - ~~Definir tela de adição de bastidor;~~
+- ~~Configurar inserção/edição/deleção de bastidores;~~
 
 ----
 
-- Configurar inserção/edição/deleção de bastidores;
+- Refatoração do código;
+- Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)
 - Separar grupos de configuração com CardView;
 
 ----
 Ideias de melhoria:
 
-- Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)
 - Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
