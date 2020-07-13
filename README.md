@@ -94,11 +94,13 @@ Ferramentas:
   - ~~Definir tela de adição de bastidor;~~
 - ~~Configurar inserção/edição/deleção de bastidores;~~
 - ~~Refatoração do código;~~
+- ~~Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)~~
 
 ----
 
-- Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)
 - Separar grupos de configuração com CardView;
+- Verificar possibilidade de usar expandable cardview;
+- Aplicar Material Design nos layouts;
 
 ----
 Ideias de melhoria:

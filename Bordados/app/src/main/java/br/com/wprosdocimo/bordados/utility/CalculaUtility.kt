@@ -10,6 +10,7 @@ class CalculaUtility(
     private val ESCALA: Int = 6
     private val MESES: Int = 12
     private val MINUTOS: Int = 60
+    private val MARGEM = 10
 
     fun valor_final(custo: BigDecimal): BigDecimal {
         val lucro_desejado = config.lucro
@@ -61,22 +62,46 @@ class CalculaUtility(
     ): BigDecimal {
         val salario_base: BigDecimal = config.salario.toBigDecimal().setScale(ESCALA)
         // Acrecentar FGTS e INSS na tabela de configurações
-        // Calcular provisão de férias:
-        // - 1/12 do salário
-        // - 1/3 do salário como adicional
-        // - Soma de encargos
-        // Calcular provisão de 13º
-        // - 1/12 do salário
-        // - Soma dos encargos
+        val FGTS = 8.0 / 100
+        val INSS = 3.0 / 100
+        val impostos = FGTS + INSS
 
-        // horas_produtivas = (horas_trabalho_mes * 85%)
+        // Calcular provisão de férias (1/12):
+        val provisao_ferias = salario_base / BigDecimal(MESES).setScale(ESCALA)
+        // Adicional de férias (1/3):
+        val adicional_ferias = provisao_ferias / BigDecimal(3).setScale(ESCALA)
+        // Encargos de férias:
+        val encargos_ferias = (provisao_ferias + adicional_ferias) * impostos.toBigDecimal()
+        // Custo mensal de férias:
+        val ferias_mensal = provisao_ferias + adicional_ferias + encargos_ferias
+
+        // Calcular provisão de 13º (1/12):
+        val provisao_decimo = salario_base / BigDecimal(MESES).setScale(ESCALA)
+        // Encargos do 13º
+        val encargos_decimo = provisao_decimo * impostos.toBigDecimal()
+        // Custo mensal do 13º
+        val decimo_mensal = provisao_decimo + encargos_decimo
+
+        // Encargos salário
+        val encargos_salario = salario_base * impostos.toBigDecimal()
+
         // custo_mo = (salario_base + provisao_ferias + provisao_13)
+        val custo_mo_mensal = (
+                salario_base + encargos_salario + decimo_mensal + ferias_mensal
+                )
+
+        // horas_produtivas = 85% das horas_trabalho_mes
+        val horas_produtivas = (horas_trabalho_mes * 85) / 100
+
         // Valor da hora = custo_mo / horas_produtivas
-        val valor_hora_pessoa: BigDecimal = salario_base / horas_trabalho_mes.toBigDecimal()
+        val custo_hora: BigDecimal = (
+                custo_mo_mensal / horas_produtivas.toBigDecimal().setScale(ESCALA)
+                )
 
         val custo_mao_obra: BigDecimal =
-            (valor_hora_pessoa / BigDecimal(MINUTOS).setScale(ESCALA)) *
+            (custo_hora / BigDecimal(MINUTOS).setScale(ESCALA)) *
                     tempo_bordado.toBigDecimal()
+
         return custo_mao_obra
     }
 
@@ -109,10 +134,11 @@ class CalculaUtility(
         return custo
     }
 
+
     private fun calcula_custo_entretela(bordado: Bordado): BigDecimal {
         val custo_metro: BigDecimal = config.custoEntretela.toBigDecimal().setScale(ESCALA)
-        val largura: Int = config.larguraEntretela
-        val comprimento: Int = config.comprimentoEntreleta
+        val largura: Int = (config.larguraEntretela + MARGEM)
+        val comprimento: Int = (config.comprimentoEntreleta + MARGEM)
 
         val area_entretela = (comprimento * largura) / 2
         val area_bastidor = (bordado.bastidor.largura * bordado.bastidor.altura) / 2
