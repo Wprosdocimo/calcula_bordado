@@ -79,30 +79,30 @@ Ferramentas:
 
 ## Próximos Passos
 
-- ~~Definir tela de resultado do cálculo;~~
-- ~~Acessar dados do Database para popular os editTexts da tela de configuração;~~
-- ~~Acessar os dados do Database para fazer o cálculo na tela inicial;~~
-- ~~Salvar as alterações de configuração na base de dados.~~
-- ~~Configurar singleton na base de dados;~~
-- ~~Criar tabela de bastidores no banco;~~
-- ~~Configurar viewmodel na aplicação;~~
-- ~~Configurar LiveData para configurações;~~
-- ~~Criar viewmodel e livedata para bastidores;~~
-- ~~Definir o layout da tela de gestão dos bastidores;~~
-  - ~~ListView com float button;~~
-  - ~~AlertDialog (para adição);~~
-  - ~~Definir tela de adição de bastidor;~~
-- ~~Configurar inserção/edição/deleção de bastidores;~~
-- ~~Refatoração do código;~~
-- ~~Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)~~
+- [X] ~~Definir tela de resultado do cálculo;~~
+- [X] ~~Acessar dados do Database para popular os editTexts da tela de configuração;~~
+- [X] ~~Acessar os dados do Database para fazer o cálculo na tela inicial;~~
+- [X] ~~Salvar as alterações de configuração na base de dados.~~
+- [X] ~~Configurar singleton na base de dados;~~
+- [X] ~~Criar tabela de bastidores no banco;~~
+- [X] ~~Configurar viewmodel na aplicação;~~
+- [X] ~~Configurar LiveData para configurações;~~
+- [X] ~~Criar viewmodel e livedata para bastidores;~~
+- [X] ~~Definir o layout da tela de gestão dos bastidores;~~
+  - [X] ~~ListView com float button;~~
+  - [X] ~~AlertDialog (para adição);~~
+  - [X] ~~Definir tela de adição de bastidor;~~
+- [X] ~~Configurar inserção/edição/deleção de bastidores;~~
+- [X] ~~Refatoração do código;~~
+- [X] ~~Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)~~
 
 ----
 
-- Separar grupos de configuração com CardView;
-- Verificar possibilidade de usar expandable cardview;
-- Aplicar Material Design nos layouts;
+- [ ] Separar grupos de configuração com CardView;
+- [ ] Verificar possibilidade de usar expandable cardview;
+- [ ] Aplicar Material Design nos layouts;
 
 ----
 Ideias de melhoria:
 
-- Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
+- [ ] Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
