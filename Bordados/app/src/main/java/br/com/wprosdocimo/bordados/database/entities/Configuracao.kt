@@ -14,6 +14,8 @@ data class Configuracao(
     @ColumnInfo(name = "horas_dia") val horasDias: Double,
     @ColumnInfo(name = "dias_mes") val diasMes: Int,
     @ColumnInfo(name = "salario") val salario: Double,
+    @ColumnInfo(name = "inss") val inss: Int,
+    @ColumnInfo(name = "fgts") val fgts: Int,
     @ColumnInfo(name = "manutencao") val manutencao: Double,
     @ColumnInfo(name = "aluguel") val aluguel: Double,
     @ColumnInfo(name = "luz") val luz: Double,

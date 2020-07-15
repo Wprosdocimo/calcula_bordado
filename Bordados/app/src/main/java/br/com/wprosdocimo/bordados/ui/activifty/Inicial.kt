@@ -27,8 +27,6 @@ class Inicial : AppCompatActivity() {
     private lateinit var config: Configuracao
     private lateinit var calcula: CalculaUtility
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.inicial_activity)
@@ -60,6 +58,8 @@ class Inicial : AppCompatActivity() {
             horasDias = 4.0,
             diasMes = 20,
             salario = 1045.00,
+            inss = 3,
+            fgts = 8,
             manutencao = 300.00,
             aluguel = 0.00,
             luz = 40.00,

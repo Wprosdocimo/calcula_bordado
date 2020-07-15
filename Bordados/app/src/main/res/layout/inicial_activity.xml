@@ -31,6 +31,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bastidor_label" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inicial_pontos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Pontos"
+        app:layout_constraintTop_toBottomOf="@id/bastidor_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/pontos_label"
         android:layout_width="wrap_content"
@@ -39,12 +60,13 @@
         android:text="Pontos:"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/pontos_editText"
         app:layout_constraintEnd_toEndOf="@+id/pontos_editText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/pontos_editText"
-        app:layout_constraintTop_toBottomOf="@id/bastidor_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/inicial_pontos" />
 
     <EditText
         android:id="@+id/pontos_editText"
@@ -54,6 +76,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="1234"
+        android:visibility="gone"
         android:inputType="number"
         android:textAlignment="center"
         android:textSize="16sp"
@@ -61,6 +84,28 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pontos_label" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inicial_cores"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Cores / Paradas"
+        app:layout_constraintTop_toBottomOf="@id/inicial_pontos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/cores_label"
@@ -70,11 +115,12 @@
         android:text="Cores / Paradas:"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/cores_editText"
         app:layout_constraintEnd_toEndOf="@id/cores_editText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/cores_editText"
-        app:layout_constraintTop_toBottomOf="@id/pontos_editText" />
+        app:layout_constraintTop_toBottomOf="@id/inicial_cores" />
 
     <EditText
         android:id="@+id/cores_editText"
@@ -83,6 +129,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:visibility="gone"
         android:hint="5"
         android:inputType="number"
         android:textAlignment="center"
@@ -92,6 +139,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cores_label" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inicial_qtde"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Quantidade de bordados"
+        app:layout_constraintTop_toBottomOf="@id/inicial_cores"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="1"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/qtde_label"
         android:layout_width="wrap_content"
@@ -100,11 +169,12 @@
         android:text="Quantidade de bordados:"
         android:textAlignment="center"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/qtde_editText"
         app:layout_constraintEnd_toEndOf="@id/qtde_editText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/qtde_editText"
-        app:layout_constraintTop_toBottomOf="@id/cores_editText" />
+        app:layout_constraintTop_toBottomOf="@id/inicial_qtde" />
 
     <EditText
         android:id="@+id/qtde_editText"
@@ -113,6 +183,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:visibility="gone"
         android:imeOptions="actionDone"
         android:inputType="number"
         android:text="1"
@@ -125,12 +196,14 @@
 
     <Button
         android:id="@+id/calcula_button"
+        style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Calcular"
+        android:text="CALCULAR"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

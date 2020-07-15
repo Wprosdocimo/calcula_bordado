@@ -17,7 +17,7 @@ class ConfiguracaoViewModel(application: Application) : AndroidViewModel(applica
 
     init {
         val configuracaoDao = AppDatabase
-            .getInstance(application)
+            .getInstance(application, viewModelScope)
             .configuracaoDao()
         repository = ConfiguracaoRepository(configuracaoDao)
         configs = repository.configs

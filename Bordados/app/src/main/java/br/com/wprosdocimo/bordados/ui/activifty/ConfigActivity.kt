@@ -8,6 +8,7 @@ import br.com.wprosdocimo.bordados.R
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
 import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
 import kotlinx.android.synthetic.main.configuracoes.*
+import kotlinx.coroutines.delay
 
 class ConfigActivity : AppCompatActivity() {
 
@@ -40,6 +41,8 @@ class ConfigActivity : AppCompatActivity() {
                 horasDias = cfg_horas_editText.text.toString().toDouble(),
                 diasMes = cfg_dias_editText.text.toString().toInt(),
                 salario = cfg_salario_editText.text.toString().toDouble(),
+                inss = 3,
+                fgts = 8,
                 manutencao = cfg_manutencao_editText.text.toString().toDouble(),
                 aluguel = cfg_aluguel_editText.text.toString().toDouble(),
                 luz = cfg_luz_editText.text.toString().toDouble(),

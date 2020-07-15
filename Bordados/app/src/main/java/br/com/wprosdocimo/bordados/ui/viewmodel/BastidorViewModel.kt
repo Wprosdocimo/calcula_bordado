@@ -17,7 +17,7 @@ class BastidorViewModel(application: Application) : AndroidViewModel(application
 
     init {
         val dao = AppDatabase
-            .getInstance(application)
+            .getInstance(application, viewModelScope)
             .bastidorDao()
         repository = BastidoresRepository(dao)
         bastidores = repository.bastidores
