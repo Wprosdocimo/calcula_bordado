@@ -95,12 +95,13 @@ Ferramentas:
 - [X] ~~Configurar inserção/edição/deleção de bastidores;~~
 - [X] ~~Refatoração do código;~~
 - [X] ~~Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)~~
+- [X] Configurar o callback na database;
 
 ----
 
+- [ ] Aplicar Material Design nos layouts;
 - [ ] Separar grupos de configuração com CardView;
 - [ ] Verificar possibilidade de usar expandable cardview;
-- [ ] Aplicar Material Design nos layouts;
 
 ----
 Ideias de melhoria:
