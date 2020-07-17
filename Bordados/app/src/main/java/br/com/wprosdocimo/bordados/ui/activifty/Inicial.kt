@@ -18,6 +18,7 @@ import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
 import kotlinx.android.synthetic.main.inicial_activity.*
 import kotlinx.android.synthetic.main.resultado_dialog.view.*
 import br.com.wprosdocimo.bordados.utility.CalculaUtility
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class Inicial : AppCompatActivity() {
@@ -43,54 +44,18 @@ class Inicial : AppCompatActivity() {
                 calcula = CalculaUtility(config)
             })
 
-//        populaBanco()
         configuraSpinner()
         configuraBotaoCalcular()
     }
 
-    private fun populaBanco() {
-        val configuracao = Configuracao(
-            id = 0,
-            lucro = 10,
-            velocidadeMaquina = 500,
-            tempoTrocaCor = 1.0,
-            tempoPreparacao = 3.0,
-            horasDias = 4.0,
-            diasMes = 20,
-            salario = 1045.00,
-            inss = 3,
-            fgts = 8,
-            manutencao = 300.00,
-            aluguel = 0.00,
-            luz = 40.00,
-            agua = 0.00,
-            telefone = 50.00,
-            custoLinhaBordado = 10.00,
-            qtdeLinhaBordado = 4000,
-            consumoLinhaBordado = 6.5,
-            custoLinhaBobina = 30.00,
-            qtdeLinhaBobina = 15000,
-            consumoLinhaBobina = 2.5,
-            custoEntretela = 12.00,
-            larguraEntretela = 900,
-            comprimentoEntreleta = 1000
-        )
-//        daoConfig.insert(configuracao)
-//        daoBastidor.deleteAll()
-
-        val bastidorA = Bastidor(id = 0, nome = "A", largura = 110, altura = 125)
-//        daoBastidor.salva(bastidorA)
-        val bastidorB = Bastidor(id = 0, nome = "B", largura = 140, altura = 200)
-//        daoBastidor.salva(bastidorB)
-        val bastidorC = Bastidor(id = 0, nome = "C", largura = 50, altura = 50)
-//        daoBastidor.salva(bastidorC)
-    }
-
     private fun configuraBotaoCalcular() {
         calcula_button.setOnClickListener {
-            val pontos = pontos_editText.text.toString()
-            val cores = cores_editText.text.toString()
-            val quantidade = qtde_editText.text.toString()
+            val pontos = inicial_pontos.editText?.text.toString()
+                // pontos_editText.text.toString()
+            val cores = inicial_cores.editText?.text.toString()
+                // cores_editText.text.toString()
+            val quantidade = inicial_qtde.editText?.text.toString()
+                // qtde_editText.text.toString()
             val bastidorSelecionado: Bastidor = bastidor_spinner.selectedItem as Bastidor
 
             val bordado = Bordado(
@@ -115,7 +80,8 @@ class Inicial : AppCompatActivity() {
             viewCriada.preco_minimo.text = valor.formataParaBrasileiro()
             viewCriada.tempo_bordado.text = (tempo_bordado * quantidade.toInt()).toString()
 
-            AlertDialog.Builder(this)
+//            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setTitle("Resultado")
                 .setView(viewCriada)
                 .setPositiveButton("OK", null)
