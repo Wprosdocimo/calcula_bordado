@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-283dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -20,135 +20,200 @@
             <Button
                 android:id="@+id/cfg_button"
                 android:layout_width="0dp"
-                android:layout_margin="8dp"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:text="Salvar Configuraçao"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_lucro_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Lucro desejado: (%)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_lucro_editText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_button" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_lucro_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_lucro_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_lucro_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_lucro_label" />
-
-            <View
-                android:id="@+id/divider_lucro"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cfg_lucro"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Lucro desejado: (%)"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_lucro_editText" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_tempo_bordado"
-                android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="3"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cfg_card_tempo"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Tempo de Bordado:"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@id/cfg_lucro"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_lucro" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_velocidade_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Velocidade da máquina:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/cfg_velocidade_editText"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_tempo_bordado" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_velocidade_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="4"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_velocidade_label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cfg_velocidade_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_velocidade_label" />
+                >
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_troca_cor_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Tempo de troca de cor:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_troca_cor_editText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_editText" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_tempo_bordado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tempo de Bordado:"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_troca_cor_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="2"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_troca_cor_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_troca_cor_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_troca_cor_label" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cfg_velocidade"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:hint="Velocidade da máquina:"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_tempo_bordado">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_preparacao_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Tempo de preparação:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_preparacao_editText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_editText" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:inputType="number" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_preparacao_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="2"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_preparacao_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_preparacao_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_preparacao_label" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cfg_troca_cor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:hint="Tempo de troca de cor:"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_velocidade">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/cfg_preparacao"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:hint="Tempo de preparação:"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_velocidade_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Velocidade da máquina:"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@id/cfg_velocidade_editText"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_preparacao" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_velocidade_editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="4"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_velocidade_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/cfg_velocidade_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_velocidade_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_troca_cor_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tempo de troca de cor:"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_troca_cor_editText"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_editText" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_troca_cor_editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="2"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_troca_cor_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_troca_cor_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_troca_cor_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_preparacao_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tempo de preparação:"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_preparacao_editText"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_editText" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_preparacao_editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="2"
+                        android:textAlignment="center"
+                        android:visibility="gone"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_preparacao_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_preparacao_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_preparacao_label" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <View
                 android:id="@+id/divider_tempo_bordado"
@@ -159,94 +224,113 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cfg_preparacao_editText" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_mao_obra"
-                android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Mão de obra"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfg_card_tempo"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_tempo_bordado" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_horas_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Horas trabalhadas: (por dia)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_mao_obra" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_horas_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="2"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_horas_label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_horas_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_horas_label" />
+                android:layout_margin="16dp"
+                >
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_dias_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Dias trabalhados: (por mês)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_horas_editText" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_dias_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="2"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_dias_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_dias_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_dias_label" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_mao_obra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Mão de obra"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_salario_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Previsão de ganho: (por mês)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_dias_editText" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_horas_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:text="Horas trabalhadas: (por dia)"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
+                        app:layout_constraintHorizontal_bias="0.51"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_mao_obra" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_salario_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="6"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_salario_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_salario_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_salario_label" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_horas_editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:ems="2"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_horas_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_horas_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_horas_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_dias_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Dias trabalhados: (por mês)"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_horas_editText" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_dias_editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="2"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_dias_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_dias_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_dias_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_salario_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Previsão de ganho: (por mês)"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_dias_editText" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_salario_editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="6"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_salario_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_salario_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_salario_label" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <View
                 android:id="@+id/divider_mo_bordado"

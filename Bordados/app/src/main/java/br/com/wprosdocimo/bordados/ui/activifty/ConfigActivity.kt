@@ -34,7 +34,7 @@ class ConfigActivity : AppCompatActivity() {
         cfg_button.setOnClickListener {
             val configNova = Configuracao(
                 id = config.id,
-                lucro = cfg_lucro_editText.text.toString().toInt(),
+                lucro = cfg_lucro.editText?.text.toString().toInt(),
                 velocidadeMaquina = cfg_velocidade_editText.text.toString().toInt(),
                 tempoTrocaCor = cfg_troca_cor_editText.text.toString().toDouble(),
                 tempoPreparacao = cfg_preparacao_editText.text.toString().toDouble(),
@@ -64,7 +64,7 @@ class ConfigActivity : AppCompatActivity() {
     }
 
     private fun populaCampos() {
-        cfg_lucro_editText.setText(config.lucro.toString())
+        cfg_lucro.editText?.setText(config.lucro.toString())
         cfg_velocidade_editText.setText(config.velocidadeMaquina.toString())
         cfg_troca_cor_editText.setText(config.tempoTrocaCor.toString())
         cfg_preparacao_editText.setText(config.tempoPreparacao.toString())
