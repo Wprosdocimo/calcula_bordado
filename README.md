@@ -100,6 +100,10 @@ Ferramentas:
 ----
 
 - [ ] Aplicar Material Design nos layouts;
+  - [X] Tela Inicial;
+  - [ ] Tela de configuração;
+  - [ ] Tela de bastidores;
+  - [ ] Caixas de diálogo;
 - [ ] Separar grupos de configuração com CardView;
 - [ ] Verificar possibilidade de usar expandable cardview;
 
