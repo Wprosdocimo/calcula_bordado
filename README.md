@@ -64,6 +64,8 @@ Campos de entrada:
 
 > Em definição
 
+![Tela de bastidores](Bastidores.jpg)
+
 ## Tecnologias
 
 - Android:
@@ -95,16 +97,16 @@ Ferramentas:
 - [X] ~~Configurar inserção/edição/deleção de bastidores;~~
 - [X] ~~Refatoração do código;~~
 - [X] ~~Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)~~
-- [X] Configurar o callback na database;
+- [X] ~~Configurar o callback na database~~;
 
 ----
 
 - [ ] Aplicar Material Design nos layouts;
-  - [X] Tela Inicial;
-  - [ ] Tela de configuração;
+  - [X] ~~Tela Inicial~~;
+  - [X] ~~Tela de configuração~~;
   - [ ] Tela de bastidores;
   - [ ] Caixas de diálogo;
-- [ ] Separar grupos de configuração com CardView;
+- [X] ~~Separar grupos de configuração com CardView~~;
 - [ ] Verificar possibilidade de usar expandable cardview;
 
 ----
