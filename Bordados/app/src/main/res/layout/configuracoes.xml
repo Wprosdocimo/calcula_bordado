@@ -20,8 +20,9 @@
                 android:id="@+id/cfg_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/colorAccent"
                 android:text="Salvar Configuraçao"
-                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -31,13 +32,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginEnd="16dp"
                 android:hint="Lucro desejado: (%)"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/cfg_button">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -54,7 +55,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="visible"
+                android:background="@color/cardview_dark_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cfg_lucro">
@@ -76,7 +77,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
-                        android:id="@+id/divider_tempo_bordado"
+                        android:id="@+id/divider_card_tempo_bordado"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
@@ -89,15 +90,13 @@
                         android:id="@+id/cfg_velocidade_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_margin="8dp"
                         android:text="Velocidade da máquina:"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textColor="?android:attr/textColorSecondary"
                         app:layout_constraintEnd_toStartOf="@id/cfg_velocidade_editText"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/divider_tempo_bordado" />
+                        app:layout_constraintTop_toBottomOf="@id/divider_card_tempo_bordado" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_velocidade_editText"
@@ -118,16 +117,13 @@
                         android:id="@+id/cfg_troca_cor_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_margin="8dp"
                         android:text="Tempo de troca de cor:"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textColor="?android:attr/textColorSecondary"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_troca_cor_editText"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_editText" />
+                        app:layout_constraintTop_toBottomOf="@id/cfg_velocidade_label" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_troca_cor_editText"
@@ -148,16 +144,13 @@
                         android:id="@+id/cfg_preparacao_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_margin="8dp"
                         android:text="Tempo de preparação:"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textColor="?android:attr/textColorSecondary"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_preparacao_editText"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_editText" />
+                        app:layout_constraintTop_toBottomOf="@id/cfg_troca_cor_label" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_preparacao_editText"
@@ -171,7 +164,6 @@
                         android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toBottomOf="@id/cfg_preparacao_label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/cfg_preparacao_label"
                         app:layout_constraintTop_toTopOf="@id/cfg_preparacao_label" />
 
@@ -179,12 +171,13 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cfg_card_mobra"
+                android:id="@+id/cfg_card_mao_obra"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:background="@color/cardview_dark_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cfg_card_tempo">
@@ -206,7 +199,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
-                        android:id="@+id/divider_mao_obra"
+                        android:id="@+id/divider_card_mao_obra"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
@@ -219,15 +212,13 @@
                         android:id="@+id/cfg_horas_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_margin="8dp"
                         android:text="Horas trabalhadas: (por dia)"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textColor="?android:attr/textColorSecondary"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/divider_mao_obra" />
+                        app:layout_constraintTop_toBottomOf="@id/divider_card_mao_obra" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_horas_editText"
@@ -241,7 +232,6 @@
                         android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toBottomOf="@id/cfg_horas_label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/cfg_horas_label"
                         app:layout_constraintTop_toTopOf="@id/cfg_horas_label" />
 
@@ -249,15 +239,13 @@
                         android:id="@+id/cfg_dias_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_margin="8dp"
                         android:text="Dias trabalhados: (por mês)"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textColor="?android:attr/textColorSecondary"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_dias_editText"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cfg_horas_editText" />
+                        app:layout_constraintTop_toBottomOf="@id/cfg_horas_label" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_dias_editText"
@@ -281,7 +269,6 @@
                         android:layout_margin="8dp"
                         android:text="Previsão de ganho: (por mês)"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textColor="?android:attr/textColorSecondary"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_salario_editText"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
@@ -297,12 +284,10 @@
                         android:inputType="numberDecimal"
                         android:textAlignment="textEnd"
                         android:textAppearance="?attr/textAppearanceBody1"
-                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@id/cfg_salario_label"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/cfg_salario_label"
                         app:layout_constraintTop_toTopOf="@id/cfg_salario_label" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -316,7 +301,7 @@
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_card_mobra">
+                app:layout_constraintTop_toBottomOf="@id/cfg_card_mao_obra">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -348,8 +333,7 @@
                         android:id="@+id/cfg_manutencao_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_margin="8dp"
                         android:text="Manutenção: (anual)"
                         android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_manutencao_editText"
@@ -375,8 +359,7 @@
                         android:id="@+id/cfg_aluguel_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="8dp"
+                        android:layout_margin="8dp"
                         android:text="Aluguel: (mensal)"
                         android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_aluguel_editText"
@@ -403,8 +386,7 @@
                         android:id="@+id/cfg_luz_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="8dp"
+                        android:layout_margin="8dp"
                         android:text="Luz: (mensal)"
                         android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintEnd_toStartOf="@+id/cfg_luz_editText"
@@ -431,24 +413,26 @@
                         android:id="@+id/cfg_agua_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_margin="8dp"
                         android:text="Agua: (mensal)"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                        app:layout_constraintHorizontal_bias="0.51"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_agua_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cfg_luz_label" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_agua_editText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:ems="5"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="0.0"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toBottomOf="@id/cfg_agua_label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/cfg_agua_label"
                         app:layout_constraintTop_toTopOf="@id/cfg_agua_label" />
 
@@ -456,62 +440,32 @@
                         android:id="@+id/cfg_telefone_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_margin="8dp"
                         android:text="Telefone / Internet: (mensal)"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                        app:layout_constraintHorizontal_bias="0.51"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_telefone_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cfg_agua_label" />
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/cfg_telefone_editText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:ems="5"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="50.00"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
                         app:layout_constraintBottom_toBottomOf="@id/cfg_telefone_label"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/cfg_telefone_label"
                         app:layout_constraintTop_toTopOf="@id/cfg_telefone_label" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
-
-            <View
-                android:id="@+id/divider_mo_bordado"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_card_custos_fixos" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custos_fixos2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Custos fixos"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_mo_bordado" />
-
-
-            <View
-                android:id="@+id/divider_custos_fixos"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_mo_bordado" />
-
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/cfg_custos_material"
@@ -519,268 +473,376 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Custos variáveis (material)"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_custos_fixos" />
+                app:layout_constraintTop_toBottomOf="@id/cfg_card_custos_fixos" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custos_linha_bordado"
-                android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cfg_card_linha_bordado"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Linha de bordado"
-                android:textSize="18sp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custos_material" />
+                app:layout_constraintTop_toBottomOf="@id/cfg_custos_material">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custo_cone_bordado_label"
-                android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_custos_linha_bordado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Linha de Bordado:"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/divider_card_linha_bordado"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_custos_linha_bordado" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_custo_cone_bordado_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Custo do cone:"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_custo_cone_bordado_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_card_linha_bordado" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_custo_cone_bordado_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="10.00"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bordado_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_custo_cone_bordado_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_custo_cone_bordado_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_qtde_linha_cone_bordado_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Quantidade por cone: (metros)"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_qtde_linha_cone_bordado_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_custo_cone_bordado_label" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_qtde_linha_cone_bordado_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="4000"
+                        android:inputType="number"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_qtde_linha_cone_bordado_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_qtde_linha_cone_bordado_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_qtde_linha_cone_bordado_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_consumo_linha_bordado_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Consumo por 1000 pontos: (metros)"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_consumo_linha_bordado_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_qtde_linha_cone_bordado_label" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_consumo_linha_bordado_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="5"
+                        android:hint="6.5"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_consumo_linha_bordado_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_consumo_linha_bordado_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_consumo_linha_bordado_label" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cfg_card_linha_bobina"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Custo do cone:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custos_linha_bordado" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_custo_cone_bordado_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bordado_label"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_custo_cone_bordado_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_custo_cone_bordado_label" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cfg_card_linha_bordado">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_qtde_linha_cone_bordado_label"
-                android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_custos_linha_bobina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Linha de Bobina:"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/divider_card_linha_bobina"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_custos_linha_bobina" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_custo_cone_bobina_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Custo do cone:"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_custo_cone_bobina_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_card_linha_bobina" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_custo_cone_bobina_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="5"
+                        android:hint="30.00"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bobina_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_custo_cone_bobina_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_custo_cone_bobina_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_qtde_linha_cone_bobina_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Quantidade por cone: (metros)"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_qtde_linha_cone_bobina_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_custo_cone_bobina_label" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_qtde_linha_cone_bobina_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="15000"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_qtde_linha_cone_bobina_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_qtde_linha_cone_bobina_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_qtde_linha_cone_bobina_label" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_consumo_linha_bobina_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Consumo por 1000 pontos: (metros)"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_consumo_linha_bobina_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_qtde_linha_cone_bobina_label" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_consumo_linha_bobina_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="5"
+                        android:hint="2.5"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_consumo_linha_bobina_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_consumo_linha_bobina_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_consumo_linha_bobina_label" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cfg_card_entretela"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Quantidade por cone: (metros)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custo_cone_bordado_label" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_qtde_linha_cone_bordado_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_qtde_linha_cone_bordado_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_qtde_linha_cone_bordado_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_qtde_linha_cone_bordado_label" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_consumo_linha_bordado_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Consumo por 1000 pontos: (metros)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_qtde_linha_cone_bordado_label" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_consumo_linha_bordado_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_consumo_linha_bordado_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_consumo_linha_bordado_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_consumo_linha_bordado_label" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custos_linha_bobina"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Linha de bobina"
-                android:textSize="18sp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_consumo_linha_bordado_label" />
+                app:layout_constraintTop_toBottomOf="@+id/cfg_card_linha_bobina">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custo_cone_bobina_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Custo do cone:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custos_linha_bobina" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_custo_cone_bobina_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_custo_cone_bobina_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_custo_cone_bobina_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_custo_cone_bobina_label" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_custos_entretela"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Entretela:"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_qtde_linha_cone_bobina_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Quantidade por cone: (metros)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custo_cone_bobina_label" />
+                    <View
+                        android:id="@+id/divider_card_entretela"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="?android:attr/listDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_custos_entretela" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_qtde_linha_cone_bobina_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_qtde_linha_cone_bobina_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_qtde_linha_cone_bobina_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_qtde_linha_cone_bobina_label" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_custo_entretela_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Custo do metro:"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_custo_entretela_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_card_entretela" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_consumo_linha_bobina_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Consumo por 1000 pontos: (metros)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_qtde_linha_cone_bobina_label" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_custo_entretela_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="12.00"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_custo_entretela_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_custo_entretela_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_custo_entretela_label" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_consumo_linha_bobina_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="3"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_consumo_linha_bobina_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_consumo_linha_bobina_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_consumo_linha_bobina_label" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_largura_entretela_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Largura: (milimetros)"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_largura_entretela_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_custo_entretela_label" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custos_entretela"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Entretela"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_consumo_linha_bobina_label" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_largura_entretela_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="900"
+                        android:inputType="number"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_largura_entretela_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_largura_entretela_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_largura_entretela_label" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_custo_entretela_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Custo do metro:"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custos_entretela" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cfg_comprimento_entretela_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Comprimento: (milimetros)"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintEnd_toStartOf="@+id/cfg_comprimento_entretela_editText"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cfg_largura_entretela_label" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_custo_entretela_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_custo_entretela_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_custo_entretela_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_custo_entretela_label" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/cfg_comprimento_entretela_editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:ems="8"
+                        android:hint="1000"
+                        android:inputType="number"
+                        android:textAlignment="textEnd"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        app:layout_constraintBottom_toBottomOf="@id/cfg_comprimento_entretela_label"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cfg_comprimento_entretela_label"
+                        app:layout_constraintTop_toTopOf="@id/cfg_comprimento_entretela_label" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_largura_entretela_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Largura: (milimetros)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_custo_entretela_label" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_largura_entretela_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_largura_entretela_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_largura_entretela_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_largura_entretela_label" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cfg_comprimento_entretela_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Comprimento: (milimetros)"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/cfg_horas_editText"
-                app:layout_constraintHorizontal_bias="0.51"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cfg_largura_entretela_label" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/cfg_comprimento_entretela_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="5"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/cfg_comprimento_entretela_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cfg_comprimento_entretela_label"
-                app:layout_constraintTop_toTopOf="@id/cfg_comprimento_entretela_label" />
+            </com.google.android.material.card.MaterialCardView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
