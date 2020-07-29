@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.ArrayAdapter
-import androidx.appcompat.app.AlertDialog
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,10 +15,11 @@ import br.com.wprosdocimo.bordados.extension.formataParaBrasileiro
 import br.com.wprosdocimo.bordados.model.Bordado
 import br.com.wprosdocimo.bordados.ui.viewmodel.BastidorViewModel
 import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
-import kotlinx.android.synthetic.main.inicial_activity.*
-import kotlinx.android.synthetic.main.resultado_dialog.view.*
 import br.com.wprosdocimo.bordados.utility.CalculaUtility
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.inicial_activity.*
+import kotlinx.android.synthetic.main.resultado_dialog.view.*
 
 
 class Inicial : AppCompatActivity() {
@@ -51,49 +52,53 @@ class Inicial : AppCompatActivity() {
     private fun configuraBotaoCalcular() {
         calcula_button.setOnClickListener {
             val pontos = inicial_pontos.editText?.text.toString()
-                // pontos_editText.text.toString()
             val cores = inicial_cores.editText?.text.toString()
-                // cores_editText.text.toString()
             val quantidade = inicial_qtde.editText?.text.toString()
-                // qtde_editText.text.toString()
             val bastidorSelecionado: Bastidor = bastidor_spinner.selectedItem as Bastidor
 
-            val bordado = Bordado(
-                pontos = pontos.toInt(),
-                cores = cores.toInt(),
-                bastidor = bastidorSelecionado
-            )
-            val tempo_bordado = calcula.tempo_bordado(bordado)
-            val custo = calcula.custo_total(
-                bordado,
-                quantidade
-            )
-            val valor = calcula.valor_final(custo)
-
-            val viewCriada = LayoutInflater.from(this)
-                .inflate(
-                    R.layout.resultado_dialog,
-                    window.decorView as ViewGroup,
-                    false
+            if (pontos.isNullOrEmpty() || cores.isNullOrEmpty() || quantidade.isNullOrEmpty()) {
+                Toast.makeText(
+                    this@Inicial,
+                    "Nenhum dos campos pode estar vazio",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val bordado = Bordado(
+                    pontos = pontos.toInt(),
+                    cores = cores.toInt(),
+                    bastidor = bastidorSelecionado
                 )
-            viewCriada.custo_calculado.text = custo.formataParaBrasileiro()
-            viewCriada.preco_minimo.text = valor.formataParaBrasileiro()
-            viewCriada.tempo_bordado.text = (tempo_bordado * quantidade.toInt()).toString()
+                val tempo_bordado = calcula.tempo_bordado(bordado)
+                val custo = calcula.custo_total(
+                    bordado,
+                    quantidade.toInt()
+                )
+                val valor = calcula.valor_final(custo)
+
+                val viewCriada = LayoutInflater.from(this)
+                    .inflate(
+                        R.layout.resultado_dialog,
+                        window.decorView as ViewGroup,
+                        false
+                    )
+                viewCriada.custo_calculado.text = custo.formataParaBrasileiro()
+                viewCriada.preco_minimo.text = valor.formataParaBrasileiro()
+                viewCriada.tempo_bordado.text = (tempo_bordado * quantidade.toInt()).toString()
 
 //            AlertDialog.Builder(this)
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Resultado")
-                .setView(viewCriada)
-                .setPositiveButton("OK", null)
-                .show()
+                MaterialAlertDialogBuilder(this)
+                    .setTitle("Resultado")
+                    .setView(viewCriada)
+                    .setPositiveButton("OK", null)
+                    .show()
+
+            }
+
         }
     }
 
 
-
     private fun configuraSpinner() {
-
-
         viewModelBastidores.bastidores
             .observe(this, Observer { bastidores ->
                 ArrayAdapter(

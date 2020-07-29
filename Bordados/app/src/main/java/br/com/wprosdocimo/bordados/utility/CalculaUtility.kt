@@ -117,7 +117,7 @@ class CalculaUtility(
 
     fun custo_total(
         bordado: Bordado,
-        quantidade: String
+        quantidade: Int
     ): BigDecimal {
         val custo_linha_bordado = calcula_custo_linha_bordado(bordado)
         val custo_linha_bobina = calcula_custo_linha_bobina(bordado)

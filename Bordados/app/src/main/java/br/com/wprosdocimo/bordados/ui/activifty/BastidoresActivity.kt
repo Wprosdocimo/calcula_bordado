@@ -62,9 +62,9 @@ class BastidoresActivity : AppCompatActivity() {
     ) {
         val viewCriada = LayoutInflater.from(this)
             .inflate(R.layout.add_bastidor_dialog, null)
-        val campoNome = viewCriada.nome_bastidor_editText
-        val campoLargura = viewCriada.largura_bastidor_editText
-        val campoAltura = viewCriada.altura_bastidor_editText
+        val campoNome = viewCriada.nome_bastidor.editText
+        val campoLargura = viewCriada.largura_bastidor.editText
+        val campoAltura = viewCriada.altura_bastidor.editText
         var titulo = "Adiciona bastidor"
         var tituloBotaoPositivo = "Adicionar"
         var id = 0
@@ -74,9 +74,9 @@ class BastidoresActivity : AppCompatActivity() {
             tituloBotaoPositivo = "Alterar"
             if (bastidor != null) {
                 id = bastidor.id
-                campoNome.setText(bastidor.nome)
-                campoAltura.setText(bastidor.altura.toString())
-                campoLargura.setText(bastidor.largura.toString())
+                campoNome?.setText(bastidor.nome)
+                campoAltura?.setText(bastidor.altura.toString())
+                campoLargura?.setText(bastidor.largura.toString())
             } else {
                 Toast.makeText(
                     application,
@@ -90,16 +90,24 @@ class BastidoresActivity : AppCompatActivity() {
             .setTitle(titulo)
             .setView(viewCriada)
             .setPositiveButton(tituloBotaoPositivo) { _, _ ->
-                val nome = campoNome.text.toString()
-                val largura = campoLargura.text.toString()
-                val altura = campoAltura.text.toString()
-                val novoBastidor = Bastidor(
-                    id = id,
-                    nome = nome,
-                    largura = largura.toInt(),
-                    altura = altura.toInt()
-                )
-                viewModel.salva(novoBastidor)
+                val nome = campoNome?.text.toString()
+                val largura = campoLargura?.text.toString()
+                val altura = campoAltura?.text.toString()
+                if (nome.isNullOrEmpty() || largura.isNullOrEmpty() || altura.isNullOrEmpty()) {
+                    Toast.makeText(
+                        this,
+                        "Não foi possível ${tituloBotaoPositivo.toLowerCase()}, pois nenhum dos campos pode estar vazio",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    val novoBastidor = Bastidor(
+                        id = id,
+                        nome = nome,
+                        largura = largura.toInt(),
+                        altura = altura.toInt()
+                    )
+                    viewModel.salva(novoBastidor)
+                }
             }
             .setNegativeButton("Cancelar", null)
             .show()

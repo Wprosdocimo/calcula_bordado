@@ -27,7 +27,7 @@ class BastidorViewModel(application: Application) : AndroidViewModel(application
         repository.salva(bastidor)
     }
 
-    fun remove(bastidor: Bastidor) {
+    fun remove(bastidor: Bastidor) = viewModelScope.launch(Dispatchers.IO) {
         repository.remove(bastidor)
     }
 }

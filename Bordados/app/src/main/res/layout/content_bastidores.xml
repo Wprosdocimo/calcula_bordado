@@ -8,9 +8,12 @@
 
     <ListView
         android:id="@+id/bastidores_listview"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:listitem="@android:layout/simple_list_item_1"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@android:layout/simple_list_item_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
