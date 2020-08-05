@@ -98,18 +98,24 @@ Ferramentas:
 - [X] ~~Refatoração do código;~~
 - [X] ~~Ajustar cálculo da mão de obra com os custos da legislação vigente (INSS, férias, 13º) (Validar); [ddauriol](https://www.twitch.tv/ddauriol)~~
 - [X] ~~Configurar o callback na database~~;
+- [X] Aplicar Material Design nos layouts;
+  - [X] ~~Tela Inicial~~;
+  - [X] ~~Tela de configuração~~;
+  - [X] ~~Tela de bastidores~~;
+  - [X] ~~Caixas de diálogo~~;
+- [X] ~~Separar grupos de configuração com CardView~~;
 
 ----
 
-- [ ] Aplicar Material Design nos layouts;
-  - [X] ~~Tela Inicial~~;
-  - [X] ~~Tela de configuração~~;
-  - [ ] Tela de bastidores;
-  - [ ] Caixas de diálogo;
-- [X] ~~Separar grupos de configuração com CardView~~;
+- [ ] Implementar fragments no lugar de activities;
+- [ ] Implementar o Navigation (JetPack);
 - [ ] Verificar possibilidade de usar expandable cardview;
+
 
 ----
 Ideias de melhoria:
 
 - [ ] Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
+ - [ ] Adicionar tela de gerenciamentos de maquinas;
+ - [ ] Adicionar cálculos referentes a depreciação;
+- [ ] Adicionar valor de referência de preços mínimos de bordado(tabela de ref);
