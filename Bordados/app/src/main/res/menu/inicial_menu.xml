@@ -6,12 +6,12 @@
         android:id="@+id/menu_bastidor"
         android:icon="@android:drawable/ic_menu_gallery"
         android:title="Bastidores"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_cfg"
         android:icon="@android:drawable/ic_menu_manage"
         android:title="Configurações"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
 </menu>

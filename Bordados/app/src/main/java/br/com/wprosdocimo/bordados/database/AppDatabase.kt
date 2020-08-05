@@ -103,10 +103,6 @@ abstract class AppDatabase : RoomDatabase() {
                         val bastidorC = Bastidor(id = 0, nome = "C", largura = 50, altura = 50)
 
                         AsyncTask.execute {
-                            // Delete all content here.
-//                            configuracaoDao.deleteAll()
-//                            bastidorDao.deleteAll()
-                            // Popula dados novos
                             configuracaoDao.salva(configuracao)
                             bastidorDao.salva(bastidorA)
                             bastidorDao.salva(bastidorB)

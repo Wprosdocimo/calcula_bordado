@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import br.com.wprosdocimo.bordados.database.AppDatabase
 import br.com.wprosdocimo.bordados.database.entities.Configuracao
 import br.com.wprosdocimo.bordados.repository.ConfiguracaoRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -20,7 +21,7 @@ class ConfiguracaoViewModel(application: Application) : AndroidViewModel(applica
             .getInstance(application, viewModelScope)
             .configuracaoDao()
         repository = ConfiguracaoRepository(configuracaoDao)
-        configs = repository.configs
+            configs = repository.configs
     }
 
     fun salva(configuracao: Configuracao) = viewModelScope

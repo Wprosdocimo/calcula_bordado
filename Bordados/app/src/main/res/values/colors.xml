@@ -1,7 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--?xml version="1.0" encoding="UTF-8"?-->
 <resources>
-    <color name="colorPrimary">#FF8133</color>
-    <color name="colorPrimaryDark">#271BB3</color>
-    <color name="colorSecondary">#64FF4D</color>
-    <color name="colorAccent">#B34F12</color>
+    <color name="primaryColor">#ff8133</color>
+    <color name="primaryLightColor">#ffb262</color>
+    <color name="primaryDarkColor">#c65200</color>
+    <color name="secondaryColor">#2c19ff</color>
+    <color name="secondaryLightColor">#7c4eff</color>
+    <color name="secondaryDarkColor">#0000ca</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#ffffff</color>
+    <color name="surfaceLightColor">#bdbdbd</color>
+    <color name="surfaceDarkColor">#8d8d8d</color>
+    <color name="surfaceTextColor">#000000</color>
+    <color name="errorColor">#d50000</color>
+    <color name="errorTextColor">#000000</color>
+    <color name="cardview_light_bg">#bdbdbd</color>
 </resources>

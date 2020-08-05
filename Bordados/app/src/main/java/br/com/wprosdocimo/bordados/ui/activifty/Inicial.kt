@@ -17,9 +17,11 @@ import br.com.wprosdocimo.bordados.ui.viewmodel.BastidorViewModel
 import br.com.wprosdocimo.bordados.ui.viewmodel.ConfiguracaoViewModel
 import br.com.wprosdocimo.bordados.utility.CalculaUtility
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.inicial_activity.*
 import kotlinx.android.synthetic.main.resultado_dialog.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class Inicial : AppCompatActivity() {
@@ -41,8 +43,14 @@ class Inicial : AppCompatActivity() {
 
         viewModelConfig.configs
             .observe(this, Observer {
-                config = it
-                calcula = CalculaUtility(config)
+                if (it == null) {
+                    GlobalScope.launch {
+                        delay(1000)
+                    }
+                } else {
+                    config = it
+                    calcula = CalculaUtility(config)
+                }
             })
 
         configuraSpinner()
