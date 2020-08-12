@@ -79,7 +79,44 @@ Ferramentas:
   - versão minima 4.4
   - versão 10 do android;
 
+----
+
+## Passos para Publicação
+
+Lista de Verificação de lançamento: [ver](https://developer.android.com/distribute/best-practices/launch/launch-checklist?hl=pt-br)
+
+Cinco tarefas principais para preparar o aplicativo para lançamento:
+- Preparar materiais para publicação:
+  - [ ] EULA;
+  - [ ] Chaves criptograficas;
+  - [ ] Nome, [ ] icone e imagens para loja;
+  - [ ] Preparar textos promocionais e criar capturas de tela do aplicativo;
+- Configurara aplicação para publicação;
+- Complilar aplicação;
+- ~~Preparar servidores/APIs necessárias~~;
+- Testar aplicação;
+
+----
+
+## Ideias de melhoria
+
+- [ ] Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
+  - [ ] Adicionar tela de gerenciamento de máquinas;
+  - [ ] Adicionar cálculos referentes a depreciação;
+- [ ] Adicionar valor de referência de preços mínimos de bordado (tabela de ref);
+- [ ] Adicionar uma tela com cálculos salvos de bordados;
+  - [ ] ver a possibilidade de adicionar foto/imagem do bordado;
+- [ ] pensar se faz sentido criar uma API para persistir as configurações e bordados salvos na nuvem ou criar uma backup em arquivo e/ou enviar para google drive;
+
+----
+
 ## Próximos Passos
+
+### Release 0.1.0
+
+- ...
+
+### Pré-release
 
 - [X] ~~Definir tela de resultado do cálculo;~~
 - [X] ~~Acessar dados do Database para popular os editTexts da tela de configuração;~~
@@ -105,17 +142,6 @@ Ferramentas:
   - [X] ~~Caixas de diálogo~~;
 - [X] ~~Separar grupos de configuração com CardView~~;
 
-----
-
 - [ ] Implementar fragments no lugar de activities;
 - [ ] Implementar o Navigation (JetPack);
 - [ ] Verificar possibilidade de usar expandable cardview;
-
-
-----
-Ideias de melhoria:
-
-- [ ] Levar em consideração a depreciação da maquina nos custos fixos; [ddauriol](https://www.twitch.tv/ddauriol)
- - [ ] Adicionar tela de gerenciamentos de maquinas;
- - [ ] Adicionar cálculos referentes a depreciação;
-- [ ] Adicionar valor de referência de preços mínimos de bordado(tabela de ref);
