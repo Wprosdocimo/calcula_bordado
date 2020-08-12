@@ -88,11 +88,12 @@ Lista de Verificação de lançamento: [ver](https://developer.android.com/distr
 Cinco tarefas principais para preparar o aplicativo para lançamento:
 - Preparar materiais para publicação:
   - [ ] EULA;
-  - [ ] Chaves criptograficas;
-  - [ ] Nome, [ ] icone e imagens para loja;
+  - [ ] Chaves criptográficas;
+  - [ ] Nome para o App;
+  - [ ] Criar um ícone e imagens para loja;
   - [ ] Preparar textos promocionais e criar capturas de tela do aplicativo;
 - Configurara aplicação para publicação;
-- Complilar aplicação;
+- Compilar aplicação;
 - ~~Preparar servidores/APIs necessárias~~;
 - Testar aplicação;
 
